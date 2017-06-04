@@ -20,10 +20,8 @@ import okhttp3.Response;
 public class RecipeList extends AppCompatActivity {
     public static final String TAG = RecipeList.class.getSimpleName();
 
-    @Bind(R.id.recipeListView)
-    ListView mRecipeListView;
-    @Bind(R.id.ingredientTextView)
-    TextView mIngredientTextView;
+    @Bind(R.id.recipeListView) ListView mRecipeListView;
+    @Bind(R.id.ingredientTextView) TextView mIngredientTextView;
 
     public ArrayList<Recipe> mRecipes = new ArrayList<>();
 
