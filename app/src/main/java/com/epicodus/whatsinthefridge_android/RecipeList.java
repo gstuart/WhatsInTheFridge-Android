@@ -67,11 +67,22 @@ public class RecipeList extends AppCompatActivity {
                 try {
                     String jsonData = response.body().string();
 
-                    Log.v(TAG, jsonData);
-
                     if (response.isSuccessful()) {
-                        Log.v(TAG, jsonData);
                         mRecipes = recipeService.processResults(response);
+
+                        RecipeList.this.runOnUiThread(new Runnable() {
+
+                            @Override
+                            public void run() {
+                                String[] recipeTitles = new String[mRecipes.size()];
+                                for (int i = 0; i < recipeTitles.length; i++) {
+                                    recipeTitles[i] = mRecipes.get(i).getTitle();
+                                }
+                                ArrayAdapter adapter = new ArrayAdapter(RecipeList.this,
+                                        android.R.layout.simple_list_item_1, recipeTitles);
+                                mRecipeListView.setAdapter(adapter);
+                            }
+                        });
                     }
                 } catch (IOException e) {
                     e.printStackTrace();
