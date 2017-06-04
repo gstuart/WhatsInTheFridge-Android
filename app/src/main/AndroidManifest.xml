@@ -15,15 +15,29 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".About" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.whatsinthefridge_android.MainActivity">
             </meta-data>
         </activity>
-        <activity android:name=".About" />
-        <activity android:name=".RegistrationActivity" />
+
+        <activity android:name=".RegistrationActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.whatsinthefridge_android.MainActivity">
+            </meta-data>
+        </activity>
+
         <activity android:name=".Fridge" />
-        <activity android:name=".RecipeList"></activity>
+
+        <activity android:name=".RecipeList">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.epicodus.whatsinthefridge_android.Fridge">
+            </meta-data>
+        </activity>
     </application>
 
 </manifest>
