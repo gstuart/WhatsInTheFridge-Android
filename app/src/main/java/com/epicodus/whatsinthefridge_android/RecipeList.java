@@ -12,6 +12,7 @@ import android.widget.TextView;
 import okhttp3.Call;
 import okhttp3.Callback;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,6 +25,8 @@ public class RecipeList extends AppCompatActivity {
     ListView mRecipeListView;
     @Bind(R.id.ingredientTextView)
     TextView mIngredientTextView;
+
+    public ArrayList<Recipe> mRecipes = new ArrayList<>();
 
     private String[] recipes = new String[]{"onion soup", "carrot cake", "cheddar cheese fondue", "black bean burrito", "spaghetti"};
 
@@ -63,7 +66,13 @@ public class RecipeList extends AppCompatActivity {
             public void onResponse(Call call, Response response) throws IOException {
                 try {
                     String jsonData = response.body().string();
+
                     Log.v(TAG, jsonData);
+
+                    if (response.isSuccessful()) {
+                        Log.v(TAG, jsonData);
+                        mRecipes = recipeService.processResults(response);
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
