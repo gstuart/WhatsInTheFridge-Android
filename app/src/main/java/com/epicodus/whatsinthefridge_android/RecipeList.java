@@ -4,19 +4,28 @@ package com.epicodus.whatsinthefridge_android;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import okhttp3.Call;
+import okhttp3.Callback;
+import java.io.IOException;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Response;
 
 public class RecipeList extends AppCompatActivity {
-    @Bind(R.id.recipeListView) ListView mRecipeListView;
-    @Bind(R.id.ingredientTextView) TextView mIngredientTextView;
+    public static final String TAG = RecipeList.class.getSimpleName();
 
-    private String[] recipes = new String[] {"onion soup", "carrot cake", "cheddar cheese fondue", "black bean burrito", "spaghetti"};
+    @Bind(R.id.recipeListView)
+    ListView mRecipeListView;
+    @Bind(R.id.ingredientTextView)
+    TextView mIngredientTextView;
+
+    private String[] recipes = new String[]{"onion soup", "carrot cake", "cheddar cheese fondue", "black bean burrito", "spaghetti"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,9 +43,31 @@ public class RecipeList extends AppCompatActivity {
         String ingredient4 = intent.getStringExtra("ingredient4");
         String ingredient5 = intent.getStringExtra("ingredient5");
 
-        String[] ingredients = new String [] {ingredient1, ingredient2, ingredient3, ingredient4, ingredient5};
+        String[] ingredients = new String[]{ingredient1, ingredient2, ingredient3, ingredient4, ingredient5};
 
         mIngredientTextView.setText("Here are all the recipes with: " + ingredient1 + ", " + ingredient2 + ", " + ingredient3 + ", " + ingredient4 + ", " + ingredient5);
 
+        getRecipes(ingredient1);
+    }
+
+    private void getRecipes(String ingredient1) {
+        final RecipeService recipeService = new RecipeService();
+        recipeService.findRecipes(ingredient1, new Callback() {
+
+            @Override
+            public void onFailure(Call call, IOException e) {
+                e.printStackTrace();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                try {
+                    String jsonData = response.body().string();
+                    Log.v(TAG, jsonData);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }
