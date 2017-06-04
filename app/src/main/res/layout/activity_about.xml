@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.epicodus.whatsinthefridge_android.About">
+    tools:context="com.epicodus.whatsinthefridge_android.About"
+    android:background="@color/colorPrimaryLight" >
 
     <TextView
         android:id="@+id/aboutTitle"
