@@ -7,9 +7,9 @@ public class Recipe {
     private String mTitle;
     private String mLink;
     private String mImageUrl;
-    private ArrayList<String> mIngredients = new ArrayList<>();
+    private String mIngredients;
 
-    public Recipe(String title, String link, String imageUrl, ArrayList<String> ingredients) {
+    public Recipe(String title, String link, String imageUrl, String ingredients) {
         this.mTitle = title;
         this.mLink = link;
         this.mImageUrl = imageUrl;
@@ -28,7 +28,7 @@ public class Recipe {
         return mImageUrl;
     }
 
-    public ArrayList<String> getIngredients() {
+    public String getIngredients() {
         return mIngredients;
     }
 }

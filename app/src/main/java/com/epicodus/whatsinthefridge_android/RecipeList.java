@@ -28,8 +28,6 @@ public class RecipeList extends AppCompatActivity {
 
     public ArrayList<Recipe> mRecipes = new ArrayList<>();
 
-    private String[] recipes = new String[]{"onion soup", "carrot cake", "cheddar cheese fondue", "black bean burrito", "spaghetti"};
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,10 +40,6 @@ public class RecipeList extends AppCompatActivity {
         String ingredient3 = intent.getStringExtra("ingredient3");
         String ingredient4 = intent.getStringExtra("ingredient4");
         String ingredient5 = intent.getStringExtra("ingredient5");
-
-        String[] ingredients = new String[]{ingredient1, ingredient2, ingredient3, ingredient4, ingredient5};
-
-        mIngredientTextView.setText("Here are all the recipes with: " + ingredient1 + ", " + ingredient2 + ", " + ingredient3 + ", " + ingredient4 + ", " + ingredient5);
 
         getRecipes(ingredient1);
     }
@@ -78,6 +72,13 @@ public class RecipeList extends AppCompatActivity {
                                 ArrayAdapter adapter = new ArrayAdapter(RecipeList.this,
                                         android.R.layout.simple_list_item_1, recipeTitles);
                                 mRecipeListView.setAdapter(adapter);
+
+                                for (Recipe recipe : mRecipes) {
+                                    Log.d(TAG, "Recipe Title: " + recipe.getTitle());
+                                    Log.d(TAG, "Recipe link: " + recipe.getLink());
+                                    Log.d(TAG, "Recipe image URL: " + recipe.getImageUrl());
+                                    Log.d(TAG, "Recipe ingredients: " + recipe.getIngredients());
+                                }
                             }
                         });
                     }

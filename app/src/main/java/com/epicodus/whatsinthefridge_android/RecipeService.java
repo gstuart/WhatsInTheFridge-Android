@@ -40,24 +40,18 @@ public class RecipeService {
         try {
             String jsonData = response.body().string();
             if (response.isSuccessful()) {
-                JSONObject yelpJSON = new JSONObject(jsonData);
-                JSONArray resultsJSON = yelpJSON.getJSONArray("results");
-                for (int i = 0; i < resultsJSON.length(); i++) {
-                    JSONObject recipeJSON = resultsJSON.getJSONObject(i);
+                JSONObject recipePuppyJSON = new JSONObject(jsonData);
+                JSONArray recipeArrayJSON = recipePuppyJSON.getJSONArray("results");
+                for (int i = 0; i < recipeArrayJSON.length(); i++) {
+                    JSONObject recipeJSON = recipeArrayJSON.getJSONObject(i);
                     String title = recipeJSON.getString("title");
                     String link = recipeJSON.getString("link");
                     String imageUrl = recipeJSON.getString("imageUrl");
-                    ArrayList<String> ingredient = new ArrayList<>();
-                    JSONArray ingredientJSON = recipeJSON.getJSONObject("ingredient")
-                            .getJSONArray("ingredients");
-                    for (int y = 0; y < ingredientJSON.length(); y++) {
-                        ingredient.add(ingredientJSON.get(y).toString());
-                    }
+                    String ingredient = recipeJSON.getString("ingredients");
 
                     Recipe recipe = new Recipe(title, link, imageUrl, ingredient);
                     recipes.add(recipe);
                 }
-
             }
         } catch (IOException e) {
             e.printStackTrace();
