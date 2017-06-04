@@ -43,6 +43,7 @@ public class RecipeList extends AppCompatActivity {
 
     private void getRecipes(String ingredient1) {
         final RecipeService recipeService = new RecipeService();
+
         recipeService.findRecipes(ingredient1, new Callback() {
 
             @Override
@@ -51,37 +52,30 @@ public class RecipeList extends AppCompatActivity {
             }
 
             @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                try {
-                    String jsonData = response.body().string();
+            public void onResponse(Call call, Response response) {
 
-                    if (response.isSuccessful()) {
-                        mRecipes = recipeService.processResults(response);
+                mRecipes = recipeService.processResults(response);
 
-                        RecipeList.this.runOnUiThread(new Runnable() {
+                RecipeList.this.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        String[] recipeTitles = new String[mRecipes.size()];
+                        for (int i = 0; i < recipeTitles.length; i++) {
+                            recipeTitles[i] = mRecipes.get(i).getTitle();
+                        }
 
-                            @Override
-                            public void run() {
-                                String[] recipeTitles = new String[mRecipes.size()];
-                                for (int i = 0; i < recipeTitles.length; i++) {
-                                    recipeTitles[i] = mRecipes.get(i).getTitle();
-                                }
-                                ArrayAdapter adapter = new ArrayAdapter(RecipeList.this,
-                                        android.R.layout.simple_list_item_1, recipeTitles);
-                                mRecipeListView.setAdapter(adapter);
+                        ArrayAdapter adapter = new ArrayAdapter(RecipeList.this,
+                                android.R.layout.simple_list_item_1, recipeTitles);
+                        mRecipeListView.setAdapter(adapter);
 
-                                for (Recipe recipe : mRecipes) {
-                                    Log.d(TAG, "Recipe Title: " + recipe.getTitle());
-                                    Log.d(TAG, "Recipe link: " + recipe.getLink());
-                                    Log.d(TAG, "Recipe image URL: " + recipe.getImageUrl());
-                                    Log.d(TAG, "Recipe ingredients: " + recipe.getIngredients());
-                                }
-                            }
-                        });
+                        for (Recipe recipe : mRecipes) {
+                            Log.d(TAG, "Recipe Title: " + recipe.getTitle());
+                            Log.d(TAG, "Recipe link: " + recipe.getLink());
+                            Log.d(TAG, "Recipe image URL: " + recipe.getImageUrl());
+                            Log.d(TAG, "Recipe ingredients: " + recipe.getIngredients());
+                        }
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                });
             }
         });
     }
