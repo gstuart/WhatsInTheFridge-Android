@@ -1,9 +1,11 @@
-package com.epicodus.whatsinthefridge_android;
+package com.epicodus.whatsinthefridge_android.ui;
 
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
+
+import com.epicodus.whatsinthefridge_android.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

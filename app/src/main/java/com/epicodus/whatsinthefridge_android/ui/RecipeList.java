@@ -1,4 +1,4 @@
-package com.epicodus.whatsinthefridge_android;
+package com.epicodus.whatsinthefridge_android.ui;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,10 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.epicodus.whatsinthefridge_android.R;
+import com.epicodus.whatsinthefridge_android.models.Recipe;
+import com.epicodus.whatsinthefridge_android.services.RecipeService;
 
 import okhttp3.Call;
 import okhttp3.Callback;

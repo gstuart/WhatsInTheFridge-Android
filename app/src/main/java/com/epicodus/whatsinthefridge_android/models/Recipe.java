@@ -1,4 +1,4 @@
-package com.epicodus.whatsinthefridge_android;
+package com.epicodus.whatsinthefridge_android.models;
 
 
 import java.util.ArrayList;

@@ -10,33 +10,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".About" >
+        <activity android:name=".ui.About" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.whatsinthefridge_android.MainActivity">
+                android:value="com.epicodus.whatsinthefridge_android.ui.MainActivity">
             </meta-data>
         </activity>
 
-        <activity android:name=".RegistrationActivity" >
+        <activity android:name=".ui.RegistrationActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.whatsinthefridge_android.MainActivity">
+                android:value="com.epicodus.whatsinthefridge_android.ui.MainActivity">
             </meta-data>
         </activity>
 
-        <activity android:name=".Fridge" />
+        <activity android:name=".ui.Fridge" />
 
-        <activity android:name=".RecipeList">
+        <activity android:name=".ui.RecipeList">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.whatsinthefridge_android.Fridge">
+                android:value="com.epicodus.whatsinthefridge_android.ui.Fridge">
             </meta-data>
         </activity>
     </application>

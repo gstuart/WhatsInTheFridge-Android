@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.epicodus.whatsinthefridge_android.RecipeList"
+    tools:context="com.epicodus.whatsinthefridge_android.ui.RecipeList"
     android:background="@color/colorPrimaryLight" >
 
     <TextView

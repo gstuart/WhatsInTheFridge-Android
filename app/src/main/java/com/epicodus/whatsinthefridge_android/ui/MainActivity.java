@@ -1,4 +1,4 @@
-package com.epicodus.whatsinthefridge_android;
+package com.epicodus.whatsinthefridge_android.ui;
 
 import android.graphics.Typeface;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.epicodus.whatsinthefridge_android.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

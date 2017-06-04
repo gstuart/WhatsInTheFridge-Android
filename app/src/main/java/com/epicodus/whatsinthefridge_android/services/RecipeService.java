@@ -1,6 +1,9 @@
-package com.epicodus.whatsinthefridge_android;
+package com.epicodus.whatsinthefridge_android.services;
 
 import android.util.Log;
+
+import com.epicodus.whatsinthefridge_android.Constants;
+import com.epicodus.whatsinthefridge_android.models.Recipe;
 
 import org.json.JSONArray;
 import org.json.JSONException;
