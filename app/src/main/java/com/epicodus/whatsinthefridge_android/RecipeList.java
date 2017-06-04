@@ -16,7 +16,7 @@ public class RecipeList extends AppCompatActivity {
     @Bind(R.id.recipeListView) ListView mRecipeListView;
     @Bind(R.id.ingredientTextView) TextView mIngredientTextView;
 
-    private String[] ingredients = new String[] {"onion", "carrot", "cheddar cheese", "black beans", "spaghetti noodles"};
+    private String[] recipes = new String[] {"onion soup", "carrot cake", "cheddar cheese fondue", "black bean burrito", "spaghetti"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class RecipeList extends AppCompatActivity {
         setContentView(R.layout.activity_recipe_list);
         ButterKnife.bind(this);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, ingredients);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, recipes);
         mRecipeListView.setAdapter(adapter);
 
         Intent intent = getIntent();
@@ -33,6 +33,7 @@ public class RecipeList extends AppCompatActivity {
         String ingredient3 = intent.getStringExtra("ingredient3");
         String ingredient4 = intent.getStringExtra("ingredient4");
         String ingredient5 = intent.getStringExtra("ingredient5");
-        mIngredientTextView.setText("Here are all the recipes with: " + ingredient1 + ingredient2 + ingredient3 + ingredient4 + ingredient5);
+
+        mIngredientTextView.setText("Here are all the recipes with: " + ingredients);
     }
 }
