@@ -13,7 +13,7 @@ import android.widget.Toast;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
     @Bind(R.id.registerLink) TextView mRegisterLink;
 
     @Bind(R.id.emailAddressText) EditText mEmailAddressText;
@@ -35,41 +35,37 @@ public class MainActivity extends AppCompatActivity {
         mEmailAddressText.setTypeface(text);
         mPasswordText.setTypeface(text);
 
-        mLoginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String email = mEmailAddressText.getText().toString();
-                String password = mPasswordText.getText().toString();
+        mLoginButton.setOnClickListener(this);
+        mRegisterLink.setOnClickListener(this);
+        mAboutButton.setOnClickListener(this);
 
-                if(email.length() == 0) {
-                    mEmailAddressText.setError("Valid email address is required");
-                } else if(password.length() == 0) {
-                    mPasswordText.setError("Password is required");
-                } else {
-                    Intent intent = new Intent(MainActivity.this, Fridge.class);
-                    intent.putExtra("email", email);
-                    intent.putExtra("password", password);
-                    startActivity(intent);
-                    Toast.makeText(MainActivity.this, "Welcome Back", Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+    }
 
-        mRegisterLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+    @Override
+    public void onClick(View v) {
+        if (v == mLoginButton) {
+            String email = mEmailAddressText.getText().toString();
+            String password = mPasswordText.getText().toString();
+
+            if (email.length() == 0) {
+                mEmailAddressText.setError("Valid email address is required");
+            } else if (password.length() == 0) {
+                mPasswordText.setError("Password is required");
+            } else {
+                Intent intent = new Intent(MainActivity.this, Fridge.class);
+                intent.putExtra("email", email);
+                intent.putExtra("password", password);
                 startActivity(intent);
+                Toast.makeText(MainActivity.this, "Welcome Back", Toast.LENGTH_LONG).show();
             }
-        });
-
-        mAboutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, About.class);
-                startActivity(intent);
-            }
-        });
-
+        }
+        if (v == mRegisterLink) {
+            Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+            startActivity(intent);
+        }
+        if (v == mAboutButton) {
+            Intent intent = new Intent(MainActivity.this, About.class);
+            startActivity(intent);
+        }
     }
 }
