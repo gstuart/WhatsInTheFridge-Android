@@ -34,6 +34,9 @@ public class RecipeList extends AppCompatActivity {
         String ingredient4 = intent.getStringExtra("ingredient4");
         String ingredient5 = intent.getStringExtra("ingredient5");
 
-        mIngredientTextView.setText("Here are all the recipes with: " + ingredients);
+        String[] ingredients = new String [] {ingredient1, ingredient2, ingredient3, ingredient4, ingredient5};
+
+        mIngredientTextView.setText("Here are all the recipes with: " + ingredient1 + ", " + ingredient2 + ", " + ingredient3 + ", " + ingredient4 + ", " + ingredient5);
+
     }
 }
