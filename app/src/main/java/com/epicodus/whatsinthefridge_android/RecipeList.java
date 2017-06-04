@@ -36,9 +36,6 @@ public class RecipeList extends AppCompatActivity {
         setContentView(R.layout.activity_recipe_list);
         ButterKnife.bind(this);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, recipes);
-        mRecipeListView.setAdapter(adapter);
-
         Intent intent = getIntent();
         String ingredient1 = intent.getStringExtra("ingredient1");
         String ingredient2 = intent.getStringExtra("ingredient2");
