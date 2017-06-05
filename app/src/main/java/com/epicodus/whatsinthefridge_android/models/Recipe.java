@@ -16,7 +16,7 @@ public class Recipe {
     public Recipe(String title, String link, String imageUrl, String ingredients) {
         this.mTitle = title;
         this.mLink = link;
-        this.mImageUrl = getImageUrl();
+        this.mImageUrl = imageUrl;
         this.mIngredients = ingredients;
     }
 
