@@ -56,6 +56,10 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
                 .centerCrop()
                 .into(mRestaurantImageView);
 
+        mRecipeTitleTextView.setText(mRecipe.getTitle());
+        mWebsiteTextView.setText(mRecipe.getLink());
+        mIngredientListTextView.setText(mRecipe.getIngredients());
+
         mRecipeTitleTextView.setOnClickListener(this);
         mWebsiteTextView.setOnClickListener(this);
         mIngredientListTextView.setOnClickListener(this);
