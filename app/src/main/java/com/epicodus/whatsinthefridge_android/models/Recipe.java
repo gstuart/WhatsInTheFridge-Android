@@ -1,11 +1,17 @@
 package com.epicodus.whatsinthefridge_android.models;
 
+import org.parceler.Parcel;
 
+@Parcel
 public class Recipe {
-    private String mTitle;
-    private String mLink;
-    private String mImageUrl;
-    private String mIngredients;
+    String mTitle;
+    String mLink;
+    String mImageUrl;
+    String mIngredients;
+
+    public Recipe() {
+
+    }
 
     public Recipe(String title, String link, String imageUrl, String ingredients) {
         this.mTitle = title;
