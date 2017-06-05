@@ -3,12 +3,11 @@ package com.epicodus.whatsinthefridge_android.ui;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.epicodus.whatsinthefridge_android.R;
+import com.epicodus.whatsinthefridge_android.adapters.RecipeListAdapter;
 import com.epicodus.whatsinthefridge_android.models.Recipe;
 import com.epicodus.whatsinthefridge_android.services.RecipeService;
 
@@ -24,8 +23,8 @@ import okhttp3.Response;
 public class RecipeList extends AppCompatActivity {
     public static final String TAG = RecipeList.class.getSimpleName();
 
-    @Bind(R.id.recipeListView) ListView mRecipeListView;
-    @Bind(R.id.ingredientTextView) TextView mIngredientTextView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    private RecipeListAdapter mAdapter;
 
     public ArrayList<Recipe> mRecipes = new ArrayList<>();
 
@@ -63,21 +62,12 @@ public class RecipeList extends AppCompatActivity {
                 RecipeList.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        String[] recipeTitles = new String[mRecipes.size()];
-                        for (int i = 0; i < recipeTitles.length; i++) {
-                            recipeTitles[i] = mRecipes.get(i).getTitle();
-                        }
-
-                        ArrayAdapter adapter = new ArrayAdapter(RecipeList.this,
-                                android.R.layout.simple_list_item_1, recipeTitles);
-                        mRecipeListView.setAdapter(adapter);
-
-                        for (Recipe recipe : mRecipes) {
-                            Log.d(TAG, "Recipe Title: " + recipe.getTitle());
-                            Log.d(TAG, "Recipe link: " + recipe.getLink());
-                            Log.d(TAG, "Recipe image URL: " + recipe.getImageUrl());
-                            Log.d(TAG, "Recipe ingredients: " + recipe.getIngredients());
-                        }
+                        mAdapter = new RecipeListAdapter(getApplicationContext(), mRecipes);
+                        mRecyclerView.setAdapter(mAdapter);
+                        RecyclerView.LayoutManager layoutManager =
+                                new LinearLayoutManager(RecipeList.this);
+                        mRecyclerView.setLayoutManager(layoutManager);
+                        mRecyclerView.setHasFixedSize(true);
                     }
                 });
             }
