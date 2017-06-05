@@ -48,8 +48,8 @@ public class RecipeService {
                 for (int i = 0; i < recipeArrayJSON.length(); i++) {
                     JSONObject recipeJSON = recipeArrayJSON.getJSONObject(i);
                     String title = recipeJSON.getString("title");
-                    String link = recipeJSON.getString("link");
-                    String imageUrl = recipeJSON.getString("imageUrl");
+                    String link = recipeJSON.getString("href");
+                    String imageUrl = recipeJSON.getString("thumbnail");
                     String ingredient = recipeJSON.getString("ingredients");
 
                     Recipe recipe = new Recipe(title, link, imageUrl, ingredient);
