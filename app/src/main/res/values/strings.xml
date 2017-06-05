@@ -14,7 +14,7 @@
     <string name="first_name_hint">Enter First Name</string>
     <string name="last_name_hint">Enter Last Name</string>
     <string name="registration_button">Register</string>
-    <string name="ingredient_instruction">Enter the ingredients you have in your refrigerator you would like to find recipes for, separated by a comma.</string>
+    <string name="ingredient_instruction">Enter the ingredients you have in your refrigerator which you would like to find recipes for, separated by a comma.</string>
     <string name="ingredient">Enter ingredient(s)</string>
     <string name="search_button">Find Recipes</string>
     <string name="recipe_title">Recipe Name: </string>
