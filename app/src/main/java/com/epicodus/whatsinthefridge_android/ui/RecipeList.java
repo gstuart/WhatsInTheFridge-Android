@@ -36,10 +36,6 @@ public class RecipeList extends AppCompatActivity {
 
         Intent intent = getIntent();
         String ingredient1 = intent.getStringExtra("ingredient1");
-        String ingredient2 = intent.getStringExtra("ingredient2");
-        String ingredient3 = intent.getStringExtra("ingredient3");
-        String ingredient4 = intent.getStringExtra("ingredient4");
-        String ingredient5 = intent.getStringExtra("ingredient5");
 
         getRecipes(ingredient1);
     }
