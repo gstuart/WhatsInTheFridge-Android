@@ -26,61 +26,10 @@
         android:hint="@string/ingredient"
         android:textAlignment="center"
         android:textColorHint="@color/colorPrimaryText"
-        android:layout_marginBottom="27dp"
-        android:layout_above="@+id/ingredient2"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/instructionView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="113dp" />
 
-    <EditText
-        android:id="@+id/ingredient2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/ingredient"
-        android:textAlignment="center"
-        android:textColorHint="@color/colorPrimaryText"
-        android:layout_above="@+id/ingredient3"
-        android:layout_alignLeft="@+id/ingredient3"
-        android:layout_alignStart="@+id/ingredient3"
-        android:layout_marginBottom="25dp" />
-
-    <EditText
-        android:id="@+id/ingredient3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/ingredient"
-        android:textAlignment="center"
-        android:textColorHint="@color/colorPrimaryText"
-        android:layout_above="@+id/ingredient4"
-        android:layout_alignLeft="@+id/ingredient4"
-        android:layout_alignStart="@+id/ingredient4"
-        android:layout_marginBottom="25dp" />
-
-    <EditText
-        android:id="@+id/ingredient4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/ingredient"
-        android:textAlignment="center"
-        android:textColorHint="@color/colorPrimaryText"
-        android:layout_above="@+id/ingredient5"
-        android:layout_alignLeft="@+id/ingredient5"
-        android:layout_alignStart="@+id/ingredient5"
-        android:layout_marginBottom="30dp" />
-
-    <EditText
-        android:id="@+id/ingredient5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="@string/ingredient"
-        android:textAlignment="center"
-        android:textColorHint="@color/colorPrimaryText"
-        android:layout_above="@+id/searchButton"
-        android:layout_alignLeft="@+id/ingredient1"
-        android:layout_alignStart="@+id/ingredient1"
-        android:layout_marginBottom="20dp" />
 
     <Button
         android:id="@+id/searchButton"
