@@ -1,8 +1,6 @@
 package com.epicodus.whatsinthefridge_android.models;
 
 
-import java.util.ArrayList;
-
 public class Recipe {
     private String mTitle;
     private String mLink;
@@ -12,7 +10,7 @@ public class Recipe {
     public Recipe(String title, String link, String imageUrl, String ingredients) {
         this.mTitle = title;
         this.mLink = link;
-        this.mImageUrl = imageUrl;
+        this.mImageUrl = getImageUrl();
         this.mIngredients = ingredients;
     }
 
@@ -25,7 +23,7 @@ public class Recipe {
     }
 
     public String getImageUrl() {
-        return mImageUrl;
+       return mImageUrl;
     }
 
     public String getIngredients() {
