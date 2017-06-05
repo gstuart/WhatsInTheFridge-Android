@@ -16,5 +16,9 @@
     <string name="ingredient_instruction">Enter 1-5 ingredients you have in the refrigerator</string>
     <string name="ingredient">Enter ingredient</string>
     <string name="search_button">Find Recipes</string>
+    <string name="recipe_title">Recipe Name: </string>
+    <string name="recipe_url">Link to recipe: </string>
+    <string name="recipe_image"></string>
+    <string name="recipe_ingredients">Ingredients: </string>
 
 </resources>
