@@ -44,13 +44,24 @@
         android:layout_marginTop="49dp" />
 
     <TextView
-        android:id="@+id/contact_details"
+        android:id="@+id/contact_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/contact_details"
+        android:text="@string/contact_name"
+        android:textSize="20sp"
         android:layout_below="@+id/contact_title"
         android:layout_alignLeft="@+id/contact_title"
         android:layout_alignStart="@+id/contact_title" />
+
+    <TextView
+        android:id="@+id/code"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/code"
+        android:textSize="20sp"
+        android:layout_below="@+id/contact_name"
+        android:layout_alignLeft="@+id/contact_name"
+        android:layout_alignStart="@+id/contact_name" />
 
 
 

@@ -14,7 +14,8 @@
         "What's In The Fridge is an app that provides you with recipes made from the ingredients you have in the fridge."
     </string>
     <string name="contact_title">Developer Info</string>
-    <string name="contact_details">Developer: Grace Stuart\nCode:https://github.com/gstuart\n\n</string>
+    <string name="contact_name">Developer: Grace Stuart</string>
+    <string name="code">https://github.com/gstuart</string>
 
     <!--Registration Activity-->
     <string name="first_name_hint">Enter First Name</string>
