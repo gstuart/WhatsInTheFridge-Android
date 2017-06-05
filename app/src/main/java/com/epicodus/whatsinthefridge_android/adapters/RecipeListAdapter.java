@@ -51,7 +51,6 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
     public class RecipeListViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener {
         @Bind(R.id.recipeImageView) ImageView mRecipeImageView;
         @Bind(R.id.recipeTitleTextView) TextView mRecipeTitleTextView;
-        @Bind(R.id.recipeUrlTextView) TextView mRecipeUrlTextView;
         @Bind(R.id.recipeIngredientsTextView) TextView mRecipeIngredientsTextView;
 
         private Context mContext;
@@ -75,7 +74,6 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         public void bindRecipe(Recipe recipe) {
             Picasso.with(mContext).load(recipe.getImageUrl()).into(mRecipeImageView);
             mRecipeTitleTextView.setText(recipe.getTitle());
-            mRecipeUrlTextView.setText(recipe.getLink());
             mRecipeIngredientsTextView.setText(recipe.getIngredients());
         }
     }
