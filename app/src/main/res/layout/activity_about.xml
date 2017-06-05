@@ -31,4 +31,27 @@
         android:layout_marginLeft="41dp"
         android:layout_marginStart="41dp" />
 
+    <TextView
+        android:id="@+id/contact_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_title"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:layout_below="@+id/aboutDescription"
+        android:layout_alignLeft="@+id/aboutDescription"
+        android:layout_alignStart="@+id/aboutDescription"
+        android:layout_marginTop="49dp" />
+
+    <TextView
+        android:id="@+id/contact_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contact_details"
+        android:layout_below="@+id/contact_title"
+        android:layout_alignLeft="@+id/contact_title"
+        android:layout_alignStart="@+id/contact_title" />
+
+
+
 </RelativeLayout>

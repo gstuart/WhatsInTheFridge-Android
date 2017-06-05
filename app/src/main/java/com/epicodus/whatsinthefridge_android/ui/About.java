@@ -27,4 +27,9 @@ public class About extends AppCompatActivity {
         mAboutDescription.setTypeface(boldText);
 
     }
+
+    @Override
+    public void onClick(View v) {
+        if (v == )
+    }
 }

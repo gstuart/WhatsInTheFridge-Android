@@ -1,25 +1,34 @@
 <resources>
+    <!--Main Activity-->
     <string name="app_name">Whats-In-The-Fridge</string>
     <string name="action_bar">"What's In The Fridge?"</string>
     <string name="email_hint">Enter Email Address</string>
     <string name="password_hint">Enter Password</string>
     <string name="login_button">Log In</string>
     <string name="register_link">Register</string>
+
+    <!--About Activity-->
     <string name="about_button">About</string>
     <string name="about_description_header">Application Description</string>
     <string name="about_description">
         "What's In The Fridge is an app that provides you with recipes made from the ingredients you have in the fridge."
-        "\n\n Developer contact: https://github.com/gstuart"
     </string>
+    <string name="contact_title">Developer Info</string>
+    <string name="contact_details">Developer: Grace Stuart\nCode:https://github.com/gstuart\n\n</string>
+
+    <!--Registration Activity-->
     <string name="first_name_hint">Enter First Name</string>
     <string name="last_name_hint">Enter Last Name</string>
     <string name="registration_button">Register</string>
+
+    <!--Fridge Activity-->
     <string name="ingredient_instruction">Enter the ingredients you have in your refrigerator which you would like to find recipes for, separated by a comma.</string>
     <string name="ingredient">Enter ingredient(s)</string>
     <string name="search_button">Find Recipes</string>
+
+    <!--Recipe List Item Activity-->
     <string name="recipe_title">Recipe Name: </string>
     <string name="recipe_url">Link to recipe: </string>
-    <string name="recipe_image"></string>
     <string name="recipe_ingredients">Ingredients: </string>
 
 </resources>
