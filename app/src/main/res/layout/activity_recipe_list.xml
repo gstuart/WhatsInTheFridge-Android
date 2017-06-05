@@ -21,11 +21,4 @@
         android:layout_height="match_parent"
         android:id="@+id/recyclerView"/>
 
-    <ListView
-        android:id="@+id/recipeListView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/ingredientTextView"
-        android:layout_centerHorizontal="true" />
-
 </RelativeLayout>
