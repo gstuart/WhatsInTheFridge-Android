@@ -1,5 +1,6 @@
 package com.epicodus.whatsinthefridge_android.ui;
 
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,12 +11,16 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.epicodus.whatsinthefridge_android.Constants;
 import com.epicodus.whatsinthefridge_android.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+
     @Bind(R.id.registerLink) TextView mRegisterLink;
 
     @Bind(R.id.emailAddressText) EditText mEmailAddressText;
@@ -69,5 +74,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(MainActivity.this, About.class);
             startActivity(intent);
         }
+    }
+
+    private void addToSharedPreference(String ingredient1) {
+        mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient1).apply();
     }
 }
