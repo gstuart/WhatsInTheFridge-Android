@@ -19,6 +19,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class RecipeDetailFragment extends Fragment {
+    private static final int MAX_WIDTH = 400;
+    private static final int MAX_HEIGHT = 300;
+
     @Bind(R.id.restaurantImageView) ImageView mRestaurantImageView;
     @Bind(R.id.recipeTitleTextView) TextView mRecipeTitleTextView;
     @Bind(R.id.ingredientListTextView) TextView mIngredientListTextView;
@@ -41,13 +44,15 @@ public class RecipeDetailFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recipe_detail, container, false);
         ButterKnife.bind(this, view);
 
-        Picasso.with(view.getContext()).load(mRecipe.getImageUrl()).into(mRestaurantImageView);
+        Picasso.with(view.getContext())
+                .load(mRecipe.getImageUrl())
+                .resize(MAX_WIDTH, MAX_HEIGHT)
+                .centerCrop()
+                .into(mRestaurantImageView);
 
         mRecipeTitleTextView.setText(mRecipe.getTitle());
         mWebsiteTextView.setText(mRecipe.getLink());
