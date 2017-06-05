@@ -1,6 +1,8 @@
 package com.epicodus.whatsinthefridge_android.ui;
 
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,7 +20,7 @@ import org.parceler.Parcels;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class RecipeDetailFragment extends Fragment {
+public class RecipeDetailFragment extends Fragment implements View.OnClickListener {
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 300;
 
@@ -54,11 +56,23 @@ public class RecipeDetailFragment extends Fragment {
                 .centerCrop()
                 .into(mRestaurantImageView);
 
-        mRecipeTitleTextView.setText(mRecipe.getTitle());
-        mWebsiteTextView.setText(mRecipe.getLink());
-        mIngredientListTextView.setText(mRecipe.getIngredients());
+//        mRecipeTitleTextView.setText(mRecipe.getTitle());
+//        mWebsiteTextView.setText(mRecipe.getLink());
+//        mIngredientListTextView.setText(mRecipe.getIngredients());
+
+        mRecipeTitleTextView.setOnClickListener(this);
+        mWebsiteTextView.setOnClickListener(this);
+        mIngredientListTextView.setOnClickListener(this);
 
         return view;
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mWebsiteTextView) {
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mRecipe.getLink()));
+            startActivity(webIntent);
+        }
     }
 
 }

@@ -33,6 +33,8 @@
     <string name="recipe_ingredients">Ingredients: </string>
 
     <!-- Recipe Detail Fragment -->
+    <string name="ingredient_list_text_view">Contains your ingredients: </string>
+    <string name="online_view">View Recipe Online</string>
     <string name="save_button">Save Recipe</string>
 
 </resources>
