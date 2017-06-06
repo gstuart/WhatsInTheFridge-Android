@@ -13,7 +13,7 @@ import com.epicodus.whatsinthefridge_android.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class CreateAccountActivity extends AppCompatActivity {
     @Bind(R.id.firstNameText) EditText mFirstName;
     @Bind(R.id.lastNameText) EditText mLastName;
     @Bind(R.id.emailText) EditText mEmail;
@@ -26,7 +26,7 @@ public class RegistrationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration);
+        setContentView(R.layout.activity_create_account);
         ButterKnife.bind(this);
         Typeface text = Typeface.createFromAsset(getAssets(), "fonts/caviar_dreams.ttf");
         mFirstName.setTypeface(text);
@@ -52,13 +52,13 @@ public class RegistrationActivity extends AppCompatActivity {
                 } else if(password.length() == 0) {
                     mPassword.setError("Password is required");
                 } else {
-                    Intent intent = new Intent(RegistrationActivity.this, Fridge.class);
+                    Intent intent = new Intent(CreateAccountActivity.this, Fridge.class);
                     intent.putExtra("firstName", firstName);
                     intent.putExtra("lastName", lastName);
                     intent.putExtra("email", email);
                     intent.putExtra("password", password);
 
-                    Toast.makeText(RegistrationActivity.this, "Welcome To What's In The Fridge", Toast.LENGTH_LONG).show();
+                    Toast.makeText(CreateAccountActivity.this, "Welcome To What's In The Fridge", Toast.LENGTH_LONG).show();
                     startActivity(intent);
                 }
             }

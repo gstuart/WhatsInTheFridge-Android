@@ -24,7 +24,7 @@
                 android:value="com.epicodus.whatsinthefridge_android.ui.MainActivity">
             </meta-data>
         </activity>
-        <activity android:name=".ui.RegistrationActivity">
+        <activity android:name=".ui.CreateAccountActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.whatsinthefridge_android.ui.MainActivity">

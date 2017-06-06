@@ -11,6 +11,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.whatsinthefridge_android.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -40,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mLoginButton.setOnClickListener(this);
         mRegisterLink.setOnClickListener(this);
         mAboutButton.setOnClickListener(this);
-
     }
 
     @Override
@@ -62,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
         if (v == mRegisterLink) {
-            Intent intent = new Intent(MainActivity.this, RegistrationActivity.class);
+            Intent intent = new Intent(MainActivity.this, CreateAccountActivity.class);
             startActivity(intent);
         }
         if (v == mAboutButton) {
