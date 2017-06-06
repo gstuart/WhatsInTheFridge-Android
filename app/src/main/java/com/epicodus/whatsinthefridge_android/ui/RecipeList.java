@@ -1,11 +1,15 @@
 package com.epicodus.whatsinthefridge_android.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import com.epicodus.whatsinthefridge_android.Constants;
 import com.epicodus.whatsinthefridge_android.R;
 import com.epicodus.whatsinthefridge_android.adapters.RecipeListAdapter;
 import com.epicodus.whatsinthefridge_android.models.Recipe;
@@ -21,6 +25,9 @@ import butterknife.ButterKnife;
 import okhttp3.Response;
 
 public class RecipeList extends AppCompatActivity {
+    private SharedPreferences mSharedPreferencs;
+    private String mRecentIngredients;
+
     public static final String TAG = RecipeList.class.getSimpleName();
 
     @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
@@ -38,6 +45,12 @@ public class RecipeList extends AppCompatActivity {
         String ingredient1 = intent.getStringExtra("ingredient1");
 
         getRecipes(ingredient1);
+
+        mSharedPreferencs = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentIngredients = mSharedPreferencs.getString(Constants.PREFERENCES_INGREDIENT_KEY, null);
+        if (mRecentIngredients != null) {
+            getRecipes(mRecentIngredients);
+        }
     }
 
     private void getRecipes(String ingredient1) {
