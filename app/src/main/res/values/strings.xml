@@ -17,9 +17,10 @@
     <string name="contact_name">Developer: Grace Stuart</string>
     <string name="code">https://github.com/gstuart</string>
 
-    <!--Registration Activity-->
+    <!--Create Account Activity-->
     <string name="first_name_hint">Enter First Name</string>
     <string name="last_name_hint">Enter Last Name</string>
+    <string name="confirm_password_hint">Confirm Password</string>
     <string name="registration_button">Register</string>
 
     <!--Fridge Activity-->

@@ -67,6 +67,16 @@
             android:layout_above="@+id/registerButton"
             android:layout_centerHorizontal="true" />
 
+        <EditText
+            android:id="@+id/confirmPasswordEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Confirm Password"
+            android:nextFocusDown="@+id/registerButton"
+            android:textSize="20sp" />
+
+
         <Button
             android:id="@+id/registerButton"
             android:layout_width="match_parent"
