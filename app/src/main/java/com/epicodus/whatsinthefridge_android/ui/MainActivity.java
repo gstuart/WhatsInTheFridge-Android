@@ -1,6 +1,5 @@
 package com.epicodus.whatsinthefridge_android.ui;
 
-import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
