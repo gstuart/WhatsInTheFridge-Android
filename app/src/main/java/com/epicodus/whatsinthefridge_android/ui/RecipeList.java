@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.epicodus.whatsinthefridge_android.Constants;
 import com.epicodus.whatsinthefridge_android.R;
@@ -48,6 +49,7 @@ public class RecipeList extends AppCompatActivity {
 
         mSharedPreferencs = PreferenceManager.getDefaultSharedPreferences(this);
         mRecentIngredients = mSharedPreferencs.getString(Constants.PREFERENCES_INGREDIENT_KEY, null);
+
         if (mRecentIngredients != null) {
             getRecipes(mRecentIngredients);
         }

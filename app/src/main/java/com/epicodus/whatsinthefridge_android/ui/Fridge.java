@@ -1,6 +1,7 @@
 package com.epicodus.whatsinthefridge_android.ui;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,15 +10,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.epicodus.whatsinthefridge_android.Constants;
 import com.epicodus.whatsinthefridge_android.R;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class Fridge extends AppCompatActivity {
+import static com.epicodus.whatsinthefridge_android.R.id.ingredient1;
+
+public class Fridge extends AppCompatActivity implements View.OnClickListener {
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
+
     @Bind(R.id.instructionView) TextView mInstructionView;
 
-    @Bind(R.id.ingredient1) EditText mIngredient1;
+    @Bind(ingredient1) EditText mIngredient1;
 
     @Bind(R.id.searchButton) Button mSearchButton;
 
@@ -45,5 +52,20 @@ public class Fridge extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onClick(View v) {
+        if (v == mSearchButton) {
+            String ingredient1 = mIngredient1.getText().toString();
+            if(!(ingredient1).equals("")) {
+                addToSharedPreference(ingredient1);
+            }
+            Intent intent = new Intent(Fridge.this, RecipeList.class);
+            startActivity(intent);
+        }
+    }
+    private void addToSharedPreference(String ingredient1) {
+        mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient1).apply();
     }
 }
