@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1078880860451",
+    "firebase_url": "https://whats-in-the-fridge.firebaseio.com",
+    "project_id": "whats-in-the-fridge",
+    "storage_bucket": "whats-in-the-fridge.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1078880860451:android:409e84e18b1ebe5c",
+        "android_client_info": {
+          "package_name": "com.epicodus.whatsinthefridge_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1078880860451-5a1ah4537d7diqs5jinkkuqb2rn4p3mt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epicodus.whatsinthefridge_android",
+            "certificate_hash": "ac826b20eb8b244f19909b0b2cd0942ede45e411"
+          }
+        },
+        {
+          "client_id": "1078880860451-qo5bfk8s7mo2h7olq82qd476uno7mhit.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqLDHIm-EEpdHFLiif8Uw_T8n10OwB2IE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1078880860451-qo5bfk8s7mo2h7olq82qd476uno7mhit.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
