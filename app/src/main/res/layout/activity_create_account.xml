@@ -7,66 +7,86 @@
     tools:context="com.epicodus.whatsinthefridge_android.ui.CreateAccountActivity"
     android:background="@color/colorPrimaryLight" >
 
-    <EditText
-        android:id="@+id/firstNameText"
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/first_name_hint"
-        android:textAlignment="center"
-        android:layout_above="@+id/lastNameText"
-        android:layout_alignLeft="@+id/lastNameText"
-        android:layout_alignStart="@+id/lastNameText"
-        android:layout_marginBottom="18dp" />
+        android:padding="30dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/linearLayout">
 
-    <EditText
-        android:id="@+id/lastNameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/last_name_hint"
-        android:textAlignment="center"
-        android:layout_above="@+id/emailText"
-        android:layout_alignLeft="@+id/emailText"
-        android:layout_alignStart="@+id/emailText"
-        android:layout_marginBottom="17dp" />
+        <EditText
+            android:id="@+id/firstNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/lastNameText"
+            android:layout_alignLeft="@+id/lastNameText"
+            android:layout_alignStart="@+id/lastNameText"
+            android:layout_marginBottom="18dp"
+            android:ems="10"
+            android:hint="@string/first_name_hint"
+            android:inputType="textPersonName"
+            android:textAlignment="center" />
 
-    <EditText
-        android:id="@+id/emailText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        android:hint="@string/email_hint"
-        android:textAlignment="center"
-        android:layout_marginBottom="17dp"
-        android:layout_above="@+id/passwordText"
-        android:layout_alignLeft="@+id/passwordText"
-        android:layout_alignStart="@+id/passwordText" />
+        <EditText
+            android:id="@+id/lastNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/emailText"
+            android:layout_alignLeft="@+id/emailText"
+            android:layout_alignStart="@+id/emailText"
+            android:layout_marginBottom="17dp"
+            android:ems="10"
+            android:hint="@string/last_name_hint"
+            android:inputType="textPersonName"
+            android:textAlignment="center" />
 
-    <EditText
-        android:id="@+id/passwordText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="@string/password_hint"
-        android:textAlignment="center"
-        android:layout_marginBottom="32dp"
-        android:layout_above="@+id/registerButton"
-        android:layout_centerHorizontal="true" />
+        <EditText
+            android:id="@+id/emailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="@string/email_hint"
+            android:textAlignment="center"
+            android:layout_marginBottom="17dp"
+            android:layout_above="@+id/passwordText"
+            android:layout_alignLeft="@+id/passwordText"
+            android:layout_alignStart="@+id/passwordText" />
 
-    <Button
-        android:id="@+id/registerButton"
+        <EditText
+            android:id="@+id/passwordText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="@string/password_hint"
+            android:textAlignment="center"
+            android:layout_marginBottom="32dp"
+            android:layout_above="@+id/registerButton"
+            android:layout_centerHorizontal="true" />
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="49dp"
+            android:text="@string/registration_button"
+            android:textColor="@color/colorTextIcons"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/registration_button"
-        android:textColor="@color/colorTextIcons"
-        android:textSize="30sp"
-        android:layout_marginBottom="49dp"
-        android:layout_alignParentBottom="true"
+        android:text="Login"
+        android:textColor="@color/colorPrimaryLight"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
