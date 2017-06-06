@@ -18,6 +18,7 @@ public class CreateAccountActivity extends AppCompatActivity {
     @Bind(R.id.lastNameText) EditText mLastName;
     @Bind(R.id.emailText) EditText mEmail;
     @Bind(R.id.passwordText) EditText mPassword;
+    @Bind(R.id.confirmPasswordEditText) EditText mConfirmPassword;
 
     @Bind(R.id.registerButton) Button mRegistrationButton;
 
@@ -33,6 +34,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         mLastName.setTypeface(text);
         mEmail.setTypeface(text);
         mPassword.setTypeface(text);
+        mConfirmPassword.setTypeface(text);
         mRegistrationButton.setTypeface(text);
 
         mRegistrationButton.setOnClickListener(new View.OnClickListener() {
