@@ -3,6 +3,7 @@ package com.epicodus.whatsinthefridge_android.ui;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,20 +36,12 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
         Typeface text = Typeface.createFromAsset(getAssets(), "fonts/caviar_dreams.ttf");
         mInstructionView.setTypeface(text);
         mIngredient1.setTypeface(text);
-
         mSearchButton.setTypeface(text);
 
-        mSearchButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String ingredient1 = mIngredient1.getText().toString();
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
 
-
-                Intent intent = new Intent(Fridge.this, RecipeList.class);
-                intent.putExtra("ingredient1", ingredient1);
-                startActivity(intent);
-            }
-        });
+        mSearchButton.setOnClickListener(this);
 
     }
 
@@ -57,13 +50,13 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
         if (v == mSearchButton) {
             String ingredient1 = mIngredient1.getText().toString();
             if(!(ingredient1).equals("")) {
-                addToSharedPreference(ingredient1);
+                addToSharedPreferences(ingredient1);
             }
             Intent intent = new Intent(Fridge.this, RecipeList.class);
             startActivity(intent);
         }
     }
-    private void addToSharedPreference(String ingredient1) {
+    private void addToSharedPreferences(String ingredient1) {
         mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient1).apply();
     }
 }
