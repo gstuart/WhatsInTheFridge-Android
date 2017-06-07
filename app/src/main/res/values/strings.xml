@@ -54,4 +54,7 @@
         completions."
     </string>
 
+    <!--Menu-->
+    <string name="search">Search</string>
+
 </resources>
