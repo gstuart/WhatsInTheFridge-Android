@@ -17,15 +17,16 @@ import com.epicodus.whatsinthefridge_android.R;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-import static com.epicodus.whatsinthefridge_android.R.id.ingredient1;
+import static com.epicodus.whatsinthefridge_android.R.id.ingredient;
 
 public class Fridge extends AppCompatActivity implements View.OnClickListener {
-    private SharedPreferences mSharedPreferences;
-    private SharedPreferences.Editor mEditor;
+//    private SharedPreferences mSharedPreferences;
+//    private SharedPreferences.Editor mEditor;
 
     @Bind(R.id.instructionView) TextView mInstructionView;
-    @Bind(R.id.ingredient1) EditText mIngredient1;
-    @Bind(R.id.searchButton) Button mSearchButton;
+    @Bind(R.id.ingredient) EditText mIngredient;
+    @Bind(R.id.searchButton) Button mSearchRecipesButton;
+    @Bind(R.id.savedButton) Button mSavedRecipesButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,28 +36,33 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
 
         Typeface text = Typeface.createFromAsset(getAssets(), "fonts/caviar_dreams.ttf");
         mInstructionView.setTypeface(text);
-        mIngredient1.setTypeface(text);
-        mSearchButton.setTypeface(text);
+        mIngredient.setTypeface(text);
+        mSearchRecipesButton.setTypeface(text);
+        mSavedRecipesButton.setTypeface(text);
 
 //        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
 //        mEditor = mSharedPreferences.edit();
 
-        mSearchButton.setOnClickListener(this);
-
+        mSearchRecipesButton.setOnClickListener(this);
+        mSavedRecipesButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-        if (v == mSearchButton) {
-            String ingredient1 = mIngredient1.getText().toString();
-            if(!(ingredient1).equals("")) {
-                addToSharedPreferences(ingredient1);
-            }
+        if (v == mSearchRecipesButton) {
+//            String ingredient = mIngredient.getText().toString();
+//            if(!(ingredient1).equals("")) {
+//                addToSharedPreferences(ingredient1);
+//            }
             Intent intent = new Intent(Fridge.this, RecipeList.class);
             startActivity(intent);
         }
+        if (v == mSavedRecipesButton) {
+            Intent intent = new Intent(Fridge.this, SavedRecipesListActivity.class);
+            startActivity(intent);
+        }
     }
-    private void addToSharedPreferences(String ingredient1) {
-        mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient1).apply();
-    }
+//    private void addToSharedPreferences(String ingredient1) {
+//        mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient1).apply();
+//    }
 }

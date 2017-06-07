@@ -29,6 +29,7 @@
     <string name="ingredient_instruction">Enter the ingredients you have in your refrigerator which you would like to find recipes for, separated by a comma.</string>
     <string name="ingredient">Enter ingredient(s)</string>
     <string name="search_button">Find Recipes</string>
+    <string name="saved_button">Saved Recipes</string>
 
     <!--Recipe List Item Activity-->
     <string name="recipe_title">Recipe Name: </string>

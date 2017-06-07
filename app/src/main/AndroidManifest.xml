@@ -19,6 +19,7 @@
         <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -42,8 +43,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.whatsinthefridge_android.ui.MainActivity" />
         </activity>
-        <activity
-            android:name=".ui.RecipeList">
+        <activity android:name=".ui.RecipeList">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.whatsinthefridge_android.ui.Fridge" />
@@ -53,6 +53,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.whatsinthefridge_android.ui.RecipeList" />
         </activity>
+        <activity android:name=".ui.SavedRecipesListActivity"></activity>
     </application>
 
 </manifest>
