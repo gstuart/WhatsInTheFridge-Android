@@ -20,10 +20,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    @Bind(R.id.registerLink) TextView mRegisterLink;
+    @Bind(R.id.registerLink) Button mRegisterLink;
 
-    @Bind(R.id.emailAddressText) EditText mEmailAddressText;
-    @Bind(R.id.passwordText) EditText mPasswordText;
+//    @Bind(R.id.emailAddressText) EditText mEmailAddressText;
+//    @Bind(R.id.passwordText) EditText mPasswordText;
 
     @Bind(R.id.loginButton) Button mLoginButton;
     @Bind(R.id.aboutButton) Button mAboutButton;
@@ -38,8 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mLoginButton.setTypeface(text);
         mRegisterLink.setTypeface(text);
         mAboutButton.setTypeface(text);
-        mEmailAddressText.setTypeface(text);
-        mPasswordText.setTypeface(text);
+//        mEmailAddressText.setTypeface(text);
+//        mPasswordText.setTypeface(text);
 
         mLoginButton.setOnClickListener(this);
         mRegisterLink.setOnClickListener(this);
@@ -49,20 +49,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         if (v == mLoginButton) {
-            String email = mEmailAddressText.getText().toString();
-            String password = mPasswordText.getText().toString();
-
-            if (email.length() == 0) {
-                mEmailAddressText.setError("Valid email address is required");
-            } else if (password.length() == 0) {
-                mPasswordText.setError("Password is required");
-            } else {
+//            String email = mEmailAddressText.getText().toString();
+//            String password = mPasswordText.getText().toString();
+//
+//            if (email.length() == 0) {
+//                mEmailAddressText.setError("Valid email address is required");
+//            } else if (password.length() == 0) {
+//                mPasswordText.setError("Password is required");
+//            } else {
                 Intent intent = new Intent(MainActivity.this, Fridge.class);
-                intent.putExtra("email", email);
-                intent.putExtra("password", password);
+//                intent.putExtra("email", email);
+//                intent.putExtra("password", password);
                 startActivity(intent);
                 Toast.makeText(MainActivity.this, "Welcome Back", Toast.LENGTH_LONG).show();
-            }
+//            }
         }
         if (v == mRegisterLink) {
             Intent intent = new Intent(MainActivity.this, CreateAccountActivity.class);

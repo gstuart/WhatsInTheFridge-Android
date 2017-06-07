@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:text="@string/ingredient_instruction"
         android:textSize="30sp"
+        android:textColor="@color/colorTextIcons"
         android:layout_alignParentTop="true"
         android:layout_marginTop="14dp"
         android:textAlignment="center"/>
@@ -25,7 +26,7 @@
         android:ems="10"
         android:hint="@string/ingredient"
         android:textAlignment="center"
-        android:textColorHint="@color/colorPrimaryText"
+        android:textColorHint="@color/colorTextIcons"
         android:layout_below="@+id/instructionView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="113dp" />

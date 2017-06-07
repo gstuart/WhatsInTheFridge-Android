@@ -10,40 +10,40 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:src="@drawable/mainactivity"
+        android:src="@drawable/fridge"
         android:scaleType="centerCrop"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <EditText
-        android:id="@+id/emailAddressText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:textColorHint="@color/colorTextIcons"
-        android:hint="@string/email_hint"
-        android:textAlignment="center"
-        android:inputType="textEmailAddress"
-        android:textSize="30sp"
-        android:ems="10"
-        android:layout_above="@+id/passwordText"
-        android:layout_centerHorizontal="true" />
+    <!--<EditText-->
+        <!--android:id="@+id/emailAddressText"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/colorAccent"-->
+        <!--android:textColorHint="@color/colorTextIcons"-->
+        <!--android:hint="@string/email_hint"-->
+        <!--android:textAlignment="center"-->
+        <!--android:inputType="textEmailAddress"-->
+        <!--android:textSize="30sp"-->
+        <!--android:ems="10"-->
+        <!--android:layout_above="@+id/passwordText"-->
+        <!--android:layout_centerHorizontal="true" />-->
 
-    <EditText
-        android:id="@+id/passwordText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/colorAccent"
-        android:textColorHint="@color/colorTextIcons"
-        android:hint="@string/password_hint"
-        android:textAlignment="center"
-        android:inputType="textPassword"
-        android:textSize="30sp"
-        android:ems="10"
-        android:layout_above="@+id/loginButton"
-        android:layout_alignLeft="@+id/emailAddressText"
-        android:layout_alignStart="@+id/emailAddressText" />
+    <!--<EditText-->
+        <!--android:id="@+id/passwordText"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/colorAccent"-->
+        <!--android:textColorHint="@color/colorTextIcons"-->
+        <!--android:hint="@string/password_hint"-->
+        <!--android:textAlignment="center"-->
+        <!--android:inputType="textPassword"-->
+        <!--android:textSize="30sp"-->
+        <!--android:ems="10"-->
+        <!--android:layout_above="@+id/loginButton"-->
+        <!--android:layout_alignLeft="@+id/emailAddressText"-->
+        <!--android:layout_alignStart="@+id/emailAddressText" />-->
 
     <Button
         android:id="@+id/loginButton"
@@ -52,11 +52,12 @@
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
         android:textColor="@color/colorTextIcons"
-        android:textSize="30sp"
-        android:layout_above="@+id/registerLink"
+        android:textSize="15sp"
+        android:layout_alignBaseline="@+id/aboutButton"
+        android:layout_alignBottom="@+id/aboutButton"
         android:layout_centerHorizontal="true" />
 
-    <TextView
+    <Button
         android:id="@+id/registerLink"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -64,22 +65,27 @@
         android:background="@color/colorAccent"
         android:textColor="@color/colorTextIcons"
         android:textColorLink="@color/colorAccent"
-        android:textSize="18sp"
-        android:layout_above="@+id/aboutButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp" />
+        android:textSize="15sp"
+        android:layout_marginRight="21dp"
+        android:layout_marginEnd="21dp"
+        android:layout_alignBaseline="@+id/loginButton"
+        android:layout_alignBottom="@+id/loginButton"
+        android:layout_toLeftOf="@+id/loginButton"
+        android:layout_toStartOf="@+id/loginButton" />
 
     <Button
         android:id="@+id/aboutButton"
         android:text="@string/about_button"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
         android:textColor="@color/colorTextIcons"
-        android:textSize="30sp"
+        android:textSize="15sp"
+        android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="16dp" />
+        android:layout_toRightOf="@+id/loginButton"
+        android:layout_toEndOf="@+id/loginButton"
+        android:layout_marginLeft="14dp"
+        android:layout_marginStart="14dp" />
 
 </RelativeLayout>

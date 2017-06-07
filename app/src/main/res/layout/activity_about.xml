@@ -16,7 +16,8 @@
         android:layout_marginTop="12dp"
         android:text="@string/about_description_header"
         android:textSize="30sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold"
+        android:textColor="@color/colorTextIcons"/>
 
     <TextView
         android:id="@+id/aboutDescription"
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         android:text="@string/about_description"
         android:textSize="20sp"
+        android:textColor="@color/colorTextIcons"
         android:layout_marginTop="13dp"
         android:layout_below="@+id/aboutTitle"
         android:layout_alignParentLeft="true"
@@ -37,6 +39,7 @@
         android:layout_height="wrap_content"
         android:text="@string/contact_title"
         android:textSize="30sp"
+        android:textColor="@color/colorTextIcons"
         android:textStyle="bold"
         android:layout_below="@+id/aboutDescription"
         android:layout_alignLeft="@+id/aboutDescription"
@@ -49,6 +52,7 @@
         android:layout_height="wrap_content"
         android:text="@string/contact_name"
         android:textSize="20sp"
+        android:textColor="@color/colorTextIcons"
         android:layout_below="@+id/contact_title"
         android:layout_alignLeft="@+id/contact_title"
         android:layout_alignStart="@+id/contact_title" />
@@ -59,6 +63,7 @@
         android:layout_height="wrap_content"
         android:text="@string/code"
         android:textSize="20sp"
+        android:textColor="@color/colorTextIcons"
         android:layout_below="@+id/contact_name"
         android:layout_alignLeft="@+id/contact_name"
         android:layout_alignStart="@+id/contact_name" />
