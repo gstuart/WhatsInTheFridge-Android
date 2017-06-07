@@ -38,8 +38,8 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
         mIngredient1.setTypeface(text);
         mSearchButton.setTypeface(text);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor = mSharedPreferences.edit();
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mEditor = mSharedPreferences.edit();
 
         mSearchButton.setOnClickListener(this);
 
