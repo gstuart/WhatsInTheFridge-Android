@@ -24,7 +24,7 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
     private SharedPreferences.Editor mEditor;
 
     @Bind(R.id.instructionView) TextView mInstructionView;
-    @Bind(ingredient1) EditText mIngredient1;
+    @Bind(R.id.ingredient1) EditText mIngredient1;
     @Bind(R.id.searchButton) Button mSearchButton;
 
     @Override
