@@ -16,7 +16,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    @Bind(R.id.signInTextView) TextView mSignInTextView;
     @Bind(R.id.emailEditText) EditText mEmailEditText;
     @Bind(R.id.passwordText) EditText mPasswordText;
     @Bind(R.id.passwordLoginButton) Button mPasswordLoginButton;
@@ -28,7 +27,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         ButterKnife.bind(this);
 
         Typeface text = Typeface.createFromAsset(getAssets(), "fonts/caviar_dreams.ttf");
-        mSignInTextView.setTypeface(text);
         mEmailEditText.setTypeface(text);
         mPasswordText.setTypeface(text);
         mPasswordLoginButton.setTypeface(text);

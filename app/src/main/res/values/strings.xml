@@ -26,7 +26,7 @@
     <string name="registration_button">Register</string>
 
     <!--Fridge Activity-->
-    <string name="ingredient_instruction">Enter the ingredients you have in your refrigerator which you would like to find recipes for, separated by a comma.</string>
+    <string name="ingredient_instruction">Find recipes by entering ingredients, separated by a comma, which you have in your refrigerator</string>
     <string name="ingredient">Enter ingredient(s)</string>
     <string name="search_button">Find Recipes</string>
     <string name="saved_button">Saved Recipes</string>
