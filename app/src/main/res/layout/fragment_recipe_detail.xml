@@ -74,9 +74,6 @@
                     android:id="@+id/ingredientListTextView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
-                    android:layout_below="@+id/recipeTitleTextView"
                     android:text="@string/ingredient_list_text_view"
                     android:textColor="@color/colorTextIcons"
                     android:textStyle="italic" />
