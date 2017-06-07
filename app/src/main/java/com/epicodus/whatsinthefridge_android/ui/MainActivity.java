@@ -6,15 +6,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.whatsinthefridge_android.R;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -57,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //            } else if (password.length() == 0) {
 //                mPasswordText.setError("Password is required");
 //            } else {
-                Intent intent = new Intent(MainActivity.this, Fridge.class);
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
 //                intent.putExtra("email", email);
 //                intent.putExtra("password", password);
                 startActivity(intent);
