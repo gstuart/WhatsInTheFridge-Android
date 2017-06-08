@@ -20,8 +20,8 @@ import butterknife.ButterKnife;
 import static com.epicodus.whatsinthefridge_android.R.id.ingredient;
 
 public class Fridge extends AppCompatActivity implements View.OnClickListener {
-//    private SharedPreferences mSharedPreferences;
-//    private SharedPreferences.Editor mEditor;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
     @Bind(R.id.instructionView) TextView mInstructionView;
     @Bind(R.id.ingredient) EditText mIngredient;
@@ -40,8 +40,8 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
         mSearchRecipesButton.setTypeface(text);
         mSavedRecipesButton.setTypeface(text);
 
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
 
         mSearchRecipesButton.setOnClickListener(this);
         mSavedRecipesButton.setOnClickListener(this);
@@ -50,10 +50,10 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         if (v == mSearchRecipesButton) {
-//            String ingredient = mIngredient.getText().toString();
-//            if(!(ingredient1).equals("")) {
-//                addToSharedPreferences(ingredient1);
-//            }
+            String ingredient = mIngredient.getText().toString();
+            if(!(ingredient).equals("")) {
+                addToSharedPreferences(ingredient);
+            }
             Intent intent = new Intent(Fridge.this, RecipeList.class);
             startActivity(intent);
         }
@@ -62,7 +62,7 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
             startActivity(intent);
         }
     }
-//    private void addToSharedPreferences(String ingredient1) {
-//        mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient1).apply();
-//    }
+    private void addToSharedPreferences(String ingredient1) {
+        mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient1).apply();
+    }
 }
