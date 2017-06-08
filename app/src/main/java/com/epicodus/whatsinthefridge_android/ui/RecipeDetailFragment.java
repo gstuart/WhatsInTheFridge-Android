@@ -75,7 +75,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
     }
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View v)     {
         if (v == mWebsiteTextView) {
             Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mRecipe.getLink()));
             startActivity(webIntent);
