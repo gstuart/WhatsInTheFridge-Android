@@ -52,6 +52,9 @@ public class RecipeService {
                     String imageUrl = recipeJSON.optString("thumbnail");
                     String ingredient = recipeJSON.optString("ingredients");
 
+                    if (imageUrl.equals("")) {
+                        imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/1024px-No_image_available.svg.png";
+                    }
                     Recipe recipe = new Recipe(title, link, imageUrl, ingredient);
                     recipes.add(recipe);
                 }

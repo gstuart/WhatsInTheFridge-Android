@@ -24,7 +24,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
     private static final int MAX_WIDTH = 400;
     private static final int MAX_HEIGHT = 300;
 
-    @Bind(R.id.restaurantImageView) ImageView mRestaurantImageView;
+    @Bind(R.id.recipeImageView) ImageView mRecipeImageView;
     @Bind(R.id.recipeTitleTextView) TextView mRecipeTitleTextView;
     @Bind(R.id.ingredientListTextView) TextView mIngredientListTextView;
     @Bind(R.id.websiteTextView) TextView mWebsiteTextView;
@@ -54,7 +54,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
                 .load(mRecipe.getImageUrl())
                 .resize(MAX_WIDTH, MAX_HEIGHT)
                 .centerCrop()
-                .into(mRestaurantImageView);
+                .into(mRecipeImageView);
 
         mRecipeTitleTextView.setText(mRecipe.getTitle());
         mWebsiteTextView.setText(mRecipe.getLink());
