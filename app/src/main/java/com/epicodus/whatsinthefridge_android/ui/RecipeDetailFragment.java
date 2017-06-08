@@ -79,12 +79,13 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
         if (v == mWebsiteTextView) {
             Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mRecipe.getLink()));
             startActivity(webIntent);
-        } if (v == mSaveRecipeButton) {
+        }
+        if (v == mSaveRecipeButton) {
             DatabaseReference recipeRef = FirebaseDatabase
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_RECIPES);
+            recipeRef.push().setValue(mRecipe);
             Toast.makeText(getContext(), "Recipe Saved", Toast.LENGTH_LONG).show();
-
         }
     }
 
