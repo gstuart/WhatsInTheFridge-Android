@@ -62,7 +62,7 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
             startActivity(intent);
         }
     }
-    private void addToSharedPreferences(String ingredient1) {
-        mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient1).apply();
+    private void addToSharedPreferences(String ingredient) {
+        mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient).apply();
     }
 }
