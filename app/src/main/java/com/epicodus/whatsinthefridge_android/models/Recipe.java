@@ -4,35 +4,35 @@ import org.parceler.Parcel;
 
 @Parcel
 public class Recipe {
-    String mTitle;
-    String mLink;
-    String mImageUrl;
-    String mIngredients;
+    String title;
+    String link;
+    String imageUrl;
+    String ingredients;
 
     public Recipe() {
 
     }
 
     public Recipe(String title, String link, String imageUrl, String ingredients) {
-        this.mTitle = title;
-        this.mLink = link;
-        this.mImageUrl = imageUrl;
-        this.mIngredients = ingredients;
+        this.title = title;
+        this.link = link;
+        this.imageUrl = imageUrl;
+        this.ingredients = ingredients;
     }
 
     public String getTitle(){
-        return mTitle;
+        return title;
     }
 
     public String getLink(){
-        return mLink;
+        return link;
     }
 
     public String getImageUrl() {
-       return mImageUrl;
+       return imageUrl;
     }
 
     public String getIngredients() {
-        return mIngredients;
+        return ingredients;
     }
 }
