@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 intent.putExtra("email", email);
                 intent.putExtra("password", password);
                 startActivity(intent);
-                Toast.makeText(LoginActivity.this, "Welcome Back", Toast.LENGTH_LONG).show();
+                Toast.makeText(LoginActivity.this, "Welcome Back", Toast.LENGTH_SHORT).show();
             }
         }
     }
