@@ -48,7 +48,7 @@ public class RecipeList extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String ingredient = intent.getStringExtra("ingredient1");
+        String ingredient = intent.getStringExtra("ingredient");
 
         getRecipes(ingredient);
 

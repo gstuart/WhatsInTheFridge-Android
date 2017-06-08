@@ -20,12 +20,12 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class RecipeService {
-    public static void findRecipes(String ingredient1, Callback callback) {
+    public static void findRecipes(String ingredient, Callback callback) {
 
         OkHttpClient client = new OkHttpClient.Builder().build();
 
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.API_URL).newBuilder();
-        urlBuilder.addQueryParameter(Constants.API_INGREDENT_QUERY_PARAMETER, ingredient1);
+        urlBuilder.addQueryParameter(Constants.API_INGREDENT_QUERY_PARAMETER, ingredient);
         String url = urlBuilder.build().toString();
         Log.d("RecipeService", url);
 
