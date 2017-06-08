@@ -27,7 +27,7 @@ public class RecipeService {
         HttpUrl.Builder urlBuilder = HttpUrl.parse(Constants.API_URL).newBuilder();
         urlBuilder.addQueryParameter(Constants.API_INGREDENT_QUERY_PARAMETER, ingredient1);
         String url = urlBuilder.build().toString();
-        Log.v("RecipeService", url);
+        Log.d("RecipeService", url);
 
         Request request= new Request.Builder()
                 .url(url)

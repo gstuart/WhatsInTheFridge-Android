@@ -74,7 +74,7 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
     }
 
     public void saveIngredientToFirebase(String ingredient) {
-        mSearchedIngredientReference.setValue(ingredient);
+        mSearchedIngredientReference.push().setValue(ingredient);
     }
 
 //    private void addToSharedPreferences(String ingredient) {
