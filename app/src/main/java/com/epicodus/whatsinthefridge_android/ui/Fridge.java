@@ -29,6 +29,7 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
 //    private SharedPreferences mSharedPreferences;
 //    private SharedPreferences.Editor mEditor;
     private DatabaseReference mSearchedIngredientReference;
+    private ValueEventListener mSearchedIngredientReferenceListener;
 
     @Bind(R.id.instructionView) TextView mInstructionView;
     @Bind(R.id.ingredient) EditText mIngredient;
@@ -93,6 +94,12 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
 
     public void saveIngredientToFirebase(String ingredient) {
         mSearchedIngredientReference.push().setValue(ingredient);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mSearchedIngredientReference.removeEventListener(mSearchedIngredientReferenceListener);
     }
 
 //    private void addToSharedPreferences(String ingredient) {
