@@ -47,10 +47,10 @@ public class RecipeService {
                 JSONArray recipeArrayJSON = recipePuppyJSON.getJSONArray("results");
                 for (int i = 0; i < recipeArrayJSON.length(); i++) {
                     JSONObject recipeJSON = recipeArrayJSON.getJSONObject(i);
-                    String title = recipeJSON.getString("title");
-                    String link = recipeJSON.getString("href");
-                    String imageUrl = recipeJSON.getString("thumbnail");
-                    String ingredient = recipeJSON.getString("ingredients");
+                    String title = recipeJSON.optString("title");
+                    String link = recipeJSON.optString("href");
+                    String imageUrl = recipeJSON.optString("thumbnail");
+                    String ingredient = recipeJSON.optString("ingredients");
 
                     Recipe recipe = new Recipe(title, link, imageUrl, ingredient);
                     recipes.add(recipe);
