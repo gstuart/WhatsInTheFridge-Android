@@ -13,6 +13,8 @@ import android.widget.TextView;
 
 import com.epicodus.whatsinthefridge_android.Constants;
 import com.epicodus.whatsinthefridge_android.R;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,8 +22,9 @@ import butterknife.ButterKnife;
 import static com.epicodus.whatsinthefridge_android.R.id.ingredient;
 
 public class Fridge extends AppCompatActivity implements View.OnClickListener {
-    private SharedPreferences mSharedPreferences;
-    private SharedPreferences.Editor mEditor;
+//    private SharedPreferences mSharedPreferences;
+//    private SharedPreferences.Editor mEditor;
+    private DatabaseReference mSearchedIngredientReference;
 
     @Bind(R.id.instructionView) TextView mInstructionView;
     @Bind(R.id.ingredient) EditText mIngredient;
@@ -30,6 +33,11 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mSearchedIngredientReference = FirebaseDatabase
+                .getInstance()
+                .getReference()
+                .child(Constants.FIREBASE_CHILD_SEARCHED_INGREDIENT);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fridge);
         ButterKnife.bind(this);
@@ -40,8 +48,8 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
         mSearchRecipesButton.setTypeface(text);
         mSavedRecipesButton.setTypeface(text);
 
-        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        mEditor = mSharedPreferences.edit();
+//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//        mEditor = mSharedPreferences.edit();
 
         mSearchRecipesButton.setOnClickListener(this);
         mSavedRecipesButton.setOnClickListener(this);
@@ -51,10 +59,12 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         if (v == mSearchRecipesButton) {
             String ingredient = mIngredient.getText().toString();
-            if(!(ingredient).equals("")) {
-                addToSharedPreferences(ingredient);
-            }
+            saveIngredientToFirebase(ingredient);
+//            if(!(ingredient).equals("")) {
+//                addToSharedPreferences(ingredient);
+//            }
             Intent intent = new Intent(Fridge.this, RecipeList.class);
+            intent.putExtra("ingredient", ingredient);
             startActivity(intent);
         }
         if (v == mSavedRecipesButton) {
@@ -62,7 +72,12 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
             startActivity(intent);
         }
     }
-    private void addToSharedPreferences(String ingredient) {
-        mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient).apply();
+
+    public void saveIngredientToFirebase(String ingredient) {
+        mSearchedIngredientReference.setValue(ingredient);
     }
+
+//    private void addToSharedPreferences(String ingredient) {
+//        mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient).apply();
+//    }
 }
