@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     @Bind(R.id.emailEditText) EditText mEmailEditText;
     @Bind(R.id.passwordText) EditText mPasswordText;
-    @Bind(R.id.passwordLoginButton) Button mPasswordLoginButton;
+    @Bind(R.id.signinButton) Button mSigninButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +29,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         Typeface text = Typeface.createFromAsset(getAssets(), "fonts/caviar_dreams.ttf");
         mEmailEditText.setTypeface(text);
         mPasswordText.setTypeface(text);
-        mPasswordLoginButton.setTypeface(text);
+        mSigninButton.setTypeface(text);
 
     }
 
     @Override
     public void onClick(View v) {
-        if (v == mPasswordLoginButton) {
+        if (v == mSigninButton) {
             String email = mEmailEditText.getText().toString();
             String password = mPasswordText.getText().toString();
 
