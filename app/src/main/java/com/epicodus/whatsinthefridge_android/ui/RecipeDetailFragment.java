@@ -8,11 +8,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.epicodus.whatsinthefridge_android.Constants;
 import com.epicodus.whatsinthefridge_android.R;
 import com.epicodus.whatsinthefridge_android.models.Recipe;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -28,6 +33,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
     @Bind(R.id.recipeTitleTextView) TextView mRecipeTitleTextView;
     @Bind(R.id.ingredientListTextView) TextView mIngredientListTextView;
     @Bind(R.id.websiteTextView) TextView mWebsiteTextView;
+    @Bind(R.id.saveRecipeButton) Button mSaveRecipeButton;
 
     private Recipe mRecipe;
 
@@ -72,6 +78,12 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
         if (v == mWebsiteTextView) {
             Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mRecipe.getLink()));
             startActivity(webIntent);
+        } if (v == mSaveRecipeButton) {
+            DatabaseReference recipeRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_RECIPES);
+            Toast.makeText(getContext(), "Recipe Saved", Toast.LENGTH_LONG).show();
+
         }
     }
 
