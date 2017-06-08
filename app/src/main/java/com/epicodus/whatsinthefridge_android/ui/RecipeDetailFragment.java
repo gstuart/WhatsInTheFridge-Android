@@ -69,6 +69,7 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
         mRecipeTitleTextView.setOnClickListener(this);
         mWebsiteTextView.setOnClickListener(this);
         mIngredientListTextView.setOnClickListener(this);
+        mSaveRecipeButton.setOnClickListener(this);
 
         return view;
     }
