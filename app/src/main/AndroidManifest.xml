@@ -44,9 +44,6 @@
                 android:value="com.epicodus.whatsinthefridge_android.ui.MainActivity" />
         </activity>
         <activity android:name=".ui.RecipeList">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.whatsinthefridge_android.ui.Fridge" />
         </activity>
         <activity android:name=".ui.RecipeDetailActivity">
             <meta-data
