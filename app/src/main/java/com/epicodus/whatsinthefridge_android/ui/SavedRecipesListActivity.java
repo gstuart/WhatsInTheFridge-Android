@@ -35,6 +35,11 @@ public class SavedRecipesListActivity extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
+
+        mRecipeReference = FirebaseDatabase
+                .getInstance()
+                .getReference(Constants.FIREBASE_CHILD_RECIPES)
+                .child(uid);
     }
 
     private void setUpFirebaseAdapter() {
