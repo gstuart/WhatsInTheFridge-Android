@@ -2,8 +2,10 @@ package com.epicodus.whatsinthefridge_android.ui;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +13,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.whatsinthefridge_android.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.Bind;
@@ -45,21 +50,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         if (view == mSignInButton) {
             loginWithPassword();
-
-
-
-
-            if (email.length() == 0) {
-                mEmailEditText.setError("Valid email address is required");
-            } else if (password.length() == 0) {
-                mPasswordText.setError("Password is required");
-            } else {
-                Intent intent = new Intent(LoginActivity.this, Fridge.class);
-                intent.putExtra("email", email);
-                intent.putExtra("password", password);
-                startActivity(intent);
-                Toast.makeText(LoginActivity.this, "Welcome Back", Toast.LENGTH_SHORT).show();
-            }
         }
     }
 
@@ -67,14 +57,25 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         String email = mEmailEditText.getText().toString().trim();
         String password = mPasswordText.getText().toString().trim();
 
-        if (email.equals("")){
-           mEmailEditText.setError("Please enter your email.");
+        if (email.equals("")) {
+            mEmailEditText.setError("Please enter your email.");
             return;
         }
         if (password.equals("")) {
             mPasswordText.setError("Please enter your password.");
             return;
         }
+
+        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                Log.d(TAG, "signInWIthEmail:onComplete: " + task.isSuccessful());
+                if (!task.isSuccessful()) {
+                    Log.w(TAG, "signInWithEmail", task.getException());
+                    Toast.makeText(LoginActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 }
 
