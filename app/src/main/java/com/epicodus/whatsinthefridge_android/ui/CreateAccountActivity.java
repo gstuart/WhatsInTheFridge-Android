@@ -22,19 +22,13 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class CreateAccountActivity extends AppCompatActivity  implements View.OnClickListener {
-    @Bind(R.id.firstNameText)
-    EditText mFirstName;
-    @Bind(R.id.lastNameText)
-    EditText mLastName;
-    @Bind(R.id.emailText)
-    EditText mEmail;
-    @Bind(R.id.passwordText)
-    EditText mPassword;
-    @Bind(R.id.confirmPasswordEditText)
-    EditText mConfirmPassword;
+    @Bind(R.id.firstNameText) EditText mFirstName;
+    @Bind(R.id.lastNameText) EditText mLastName;
+    @Bind(R.id.emailText) EditText mEmail;
+    @Bind(R.id.passwordText) EditText mPassword;
+    @Bind(R.id.confirmPasswordEditText) EditText mConfirmPassword;
 
-    @Bind(R.id.registerButton)
-    Button mRegistrationButton;
+    @Bind(R.id.registerButton) Button mRegistrationButton;
 
     public static final String TAG = CreateAccountActivity.class.getSimpleName();
     private FirebaseAuth mAuth;
@@ -81,7 +75,7 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
     }
 
     private boolean isValidEmail(String email) {
-        boolean isGoodEmail = (email != null && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        boolean isGoodEmail = (email != null && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches());
         if (!isGoodEmail) {
             mEmail.setError("Please enter a valid email address");
             return false;
@@ -132,6 +126,11 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
         final String email = mEmail.getText().toString().trim();
         String password = mPassword.getText().toString().trim();
         String confirmPassword = mConfirmPassword.getText().toString().trim();
+
+        boolean validEmail = isValidEmail(email);
+        boolean validName = isValidName(firstName, lastName);
+        boolean validPassword = isValidPassword(password, confirmPassword);
+        if (!validEmail || !validName || !validPassword) return;
 
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this, new OnCompleteListener< AuthResult>() {
