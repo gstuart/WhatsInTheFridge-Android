@@ -25,6 +25,7 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:textColorHint="@color/colorTextIcons"
+            android:textColor="@color/colorTextIcons"
             android:hint="@string/email_hint"
             android:inputType="textEmailAddress" />
 
@@ -37,6 +38,7 @@
             android:textAlignment="center"
             android:textSize="20sp"
             android:textColorHint="@color/colorTextIcons"
+            android:textColor="@color/colorTextIcons"
             android:hint="@string/password_hint"
             android:inputType="textPassword" />
 
