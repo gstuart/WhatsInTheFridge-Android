@@ -88,7 +88,9 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
 
             DatabaseReference recipeRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_RECIPES);
+                    .getReference(Constants.FIREBASE_CHILD_RECIPES)
+                    .child(uid);
+
             recipeRef.push().setValue(mRecipe);
 
             Toast.makeText(getContext(), "Recipe Saved", Toast.LENGTH_LONG).show();
