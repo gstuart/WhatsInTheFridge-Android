@@ -30,9 +30,6 @@ public class SavedRecipesListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_recipe_list);
         ButterKnife.bind(this);
 
-        mRecipeReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPES);
-        setUpFirebaseAdapter();
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
@@ -40,6 +37,7 @@ public class SavedRecipesListActivity extends AppCompatActivity {
                 .getInstance()
                 .getReference(Constants.FIREBASE_CHILD_RECIPES)
                 .child(uid);
+        setUpFirebaseAdapter();
     }
 
     private void setUpFirebaseAdapter() {
