@@ -41,7 +41,7 @@ public class Recipe {
         return pushId;
     }
 
-    public String setPushId() {
+    public void setPushId(String pushId) {
         this.pushId = pushId;
     }
 }
