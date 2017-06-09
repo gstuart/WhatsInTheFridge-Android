@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -21,19 +22,13 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class CreateAccountActivity extends AppCompatActivity  implements View.OnClickListener {
-    @Bind(R.id.firstNameText)
-    EditText mFirstName;
-    @Bind(R.id.lastNameText)
-    EditText mLastName;
-    @Bind(R.id.emailText)
-    EditText mEmail;
-    @Bind(R.id.passwordText)
-    EditText mPassword;
-    @Bind(R.id.confirmPasswordEditText)
-    EditText mConfirmPassword;
+    @Bind(R.id.firstNameText) EditText mFirstName;
+    @Bind(R.id.lastNameText) EditText mLastName;
+    @Bind(R.id.emailText) EditText mEmail;
+    @Bind(R.id.passwordText) EditText mPassword;
+    @Bind(R.id.confirmPasswordEditText) EditText mConfirmPassword;
 
-    @Bind(R.id.registerButton)
-    Button mRegistrationButton;
+    @Bind(R.id.registerButton) Button mRegistrationButton;
 
     public static final String TAG = CreateAccountActivity.class.getSimpleName();
     private FirebaseAuth mAuth;
@@ -79,6 +74,42 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
         };
     }
 
+    private boolean isValidEmail(String email) {
+        boolean isGoodEmail = (email != null && android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        if (!isGoodEmail) {
+            mEmail.setError("Please enter a valid email address");
+            return false;
+        }
+        return isGoodEmail;
+    }
+
+    private boolean isValidFirstName(String firstName) {
+        if (firstName.equals("")) {
+            mFirstName.setError("Please enter your first name.");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidLastName(String lastName) {
+        if (lastName.equals("")) {
+            mLastName.setError("Please enter your last name.");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidPassword(String password, String confirmPassword) {
+        if (password.length() < 6 ) {
+            mPassword.setError("Please create a password with at least 6 characters.");
+            return false;
+        } else if (!password.equals(confirmPassword)) {
+            mConfirmPassword.setError("Passwords do not match");
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public void onStart() {
         super.onStart();
@@ -99,6 +130,12 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
         final String email = mEmail.getText().toString().trim();
         String password = mPassword.getText().toString().trim();
         String confirmPassword = mConfirmPassword.getText().toString().trim();
+
+        boolean validEmail = isValidEmail(email);
+        boolean validFirstName = isValidFirstName(firstName);
+        boolean validLastName = isValidLastName(lastName);
+        boolean validPassword = isValidPassword(password, confirmPassword);
+        if (!validEmail || !validFirstName || !validLastName || !validPassword) return;
 
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this, new OnCompleteListener< AuthResult>() {
