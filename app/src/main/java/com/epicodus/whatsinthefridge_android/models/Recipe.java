@@ -8,6 +8,7 @@ public class Recipe {
     String link;
     String imageUrl;
     String ingredients;
+    private String pushId;
 
     public Recipe() {
 
@@ -34,5 +35,13 @@ public class Recipe {
 
     public String getIngredients() {
         return ingredients;
+    }
+
+    public String getPushId() {
+        return pushId;
+    }
+
+    public String setPushId() {
+        this.pushId = pushId;
     }
 }
