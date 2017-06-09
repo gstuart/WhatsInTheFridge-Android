@@ -11,14 +11,19 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.epicodus.whatsinthefridge_android.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+    public static final String TAG = LoginActivity.class.getSimpleName();
+
     @Bind(R.id.emailEditText) EditText mEmailEditText;
     @Bind(R.id.passwordText) EditText mPasswordText;
     @Bind(R.id.signInButton) Button mSignInButton;
+
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +37,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         mSignInButton.setTypeface(text);
 
         mSignInButton.setOnClickListener(this);
+        mAuth = FirebaseAuth.getInstance();
 
     }
 
