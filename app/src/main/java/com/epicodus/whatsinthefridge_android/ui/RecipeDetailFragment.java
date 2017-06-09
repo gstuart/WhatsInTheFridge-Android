@@ -91,7 +91,12 @@ public class RecipeDetailFragment extends Fragment implements View.OnClickListen
                     .getReference(Constants.FIREBASE_CHILD_RECIPES)
                     .child(uid);
 
-            recipeRef.push().setValue(mRecipe);
+            DatabaseReference pushRef = recipeRef.push();
+            String pushId = pushRef.getKey();
+            mRecipe.setPushId(pushId);
+            pushRef.setValue(mRecipe);
+
+//            recipeRef.push().setValue(mRecipe);
 
             Toast.makeText(getContext(), "Recipe Saved", Toast.LENGTH_LONG).show();
         }
