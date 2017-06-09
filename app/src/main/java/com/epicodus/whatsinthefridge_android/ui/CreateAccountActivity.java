@@ -182,3 +182,6 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
         });
     }
 }
+
+// TODO: change color of text typed by user to White
+// TODO: change page user lands on after clicking registration button from Main to Fridge
