@@ -23,28 +23,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.CreateAccountActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.whatsinthefridge_android.ui.MainActivity" />
-        </activity>
-        <activity android:name=".ui.LoginActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.epicodus.whatsinthefridge_android.ui.MainActivity" />
-        </activity>
+        <activity android:name=".ui.CreateAccountActivity" />
+        <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.About">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.epicodus.whatsinthefridge_android.ui.MainActivity" />
         </activity>
-        <activity android:name=".ui.Fridge">
-        </activity>
+        <activity android:name=".ui.Fridge" />
         <activity android:name=".ui.RecipeList"
             android:label=""/>
-        <activity android:name=".ui.RecipeDetailActivity">
-        </activity>
-        <activity android:name=".ui.SavedRecipesListActivity"></activity>
+        <activity android:name=".ui.RecipeDetailActivity" />
+        <activity android:name=".ui.SavedRecipesListActivity" />
     </application>
 
 </manifest>
