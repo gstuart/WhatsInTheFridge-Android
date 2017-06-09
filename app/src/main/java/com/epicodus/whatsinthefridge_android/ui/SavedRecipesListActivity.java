@@ -10,6 +10,8 @@ import com.epicodus.whatsinthefridge_android.R;
 import com.epicodus.whatsinthefridge_android.adapters.FirebaseRecipeViewHolder;
 import com.epicodus.whatsinthefridge_android.models.Recipe;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -30,6 +32,9 @@ public class SavedRecipesListActivity extends AppCompatActivity {
 
         mRecipeReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPES);
         setUpFirebaseAdapter();
+
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
     }
 
     private void setUpFirebaseAdapter() {
