@@ -24,9 +24,12 @@
         android:background="@color/colorAccent"
         android:textColor="@color/colorTextIcons"
         android:textSize="15sp"
-        android:layout_alignBaseline="@+id/aboutButton"
-        android:layout_alignBottom="@+id/aboutButton"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignBaseline="@+id/registerLink"
+        android:layout_alignBottom="@+id/registerLink"
+        android:layout_toLeftOf="@+id/registerLink"
+        android:layout_toStartOf="@+id/registerLink"
+        android:layout_marginRight="23dp"
+        android:layout_marginEnd="23dp" />
 
     <Button
         android:id="@+id/registerLink"
@@ -37,12 +40,9 @@
         android:textColor="@color/colorTextIcons"
         android:textColorLink="@color/colorAccent"
         android:textSize="15sp"
-        android:layout_marginRight="21dp"
-        android:layout_marginEnd="21dp"
-        android:layout_alignBaseline="@+id/loginButton"
-        android:layout_alignBottom="@+id/loginButton"
-        android:layout_toLeftOf="@+id/loginButton"
-        android:layout_toStartOf="@+id/loginButton" />
+        android:layout_alignBaseline="@+id/aboutButton"
+        android:layout_alignBottom="@+id/aboutButton"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:id="@+id/aboutButton"
@@ -52,11 +52,11 @@
         android:background="@color/colorAccent"
         android:textColor="@color/colorTextIcons"
         android:textSize="15sp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/loginButton"
-        android:layout_toEndOf="@+id/loginButton"
-        android:layout_marginLeft="14dp"
-        android:layout_marginStart="14dp" />
+        android:layout_toRightOf="@+id/registerLink"
+        android:layout_toEndOf="@+id/registerLink" />
 
 </RelativeLayout>
