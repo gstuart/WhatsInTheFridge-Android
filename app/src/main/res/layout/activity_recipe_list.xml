@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.epicodus.whatsinthefridge_android.ui.RecipeList"
-    android:background="@color/colorPrimaryLight" >
+    android:background="@color/colorPrimary" >
 
     <TextView
         android:id="@+id/ingredientTextView"
