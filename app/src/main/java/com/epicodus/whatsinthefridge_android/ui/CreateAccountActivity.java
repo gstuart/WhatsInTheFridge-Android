@@ -1,4 +1,5 @@
 package com.epicodus.whatsinthefridge_android.ui;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
@@ -33,6 +34,7 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
     public static final String TAG = CreateAccountActivity.class.getSimpleName();
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private ProgressDialog mAuthProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
 
         mAuth = FirebaseAuth.getInstance();
         createAuthStateListener();
+        createAuthProgressDialog();
 
         Typeface text = Typeface.createFromAsset(getAssets(), "fonts/caviar_dreams.ttf");
         mFirstName.setTypeface(text);
@@ -52,6 +55,13 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
         mRegistrationButton.setTypeface(text);
 
         mRegistrationButton.setOnClickListener(this);
+    }
+
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+        mAuthProgressDialog.setCancelable(false);
     }
 
     @Override
@@ -136,6 +146,8 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
         boolean validLastName = isValidLastName(lastName);
         boolean validPassword = isValidPassword(password, confirmPassword);
         if (!validEmail || !validFirstName || !validLastName || !validPassword) return;
+
+        mAuthProgressDialog.show();
 
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this, new OnCompleteListener< AuthResult>() {
