@@ -83,13 +83,17 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
         return isGoodEmail;
     }
 
-    private boolean isValidName(String firstName, String lastName) {
+    private boolean isValidFirstName(String firstName) {
         if (firstName.equals("")) {
             mFirstName.setError("Please enter your first name.");
             return false;
         }
+        return true;
+    }
+
+    private boolean isValidLastName(String lastName) {
         if (lastName.equals("")) {
-            mLastName.setError("Please enter your last name");
+            mLastName.setError("Please enter your last name.");
             return false;
         }
         return true;
@@ -100,7 +104,7 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
             mPassword.setError("Please create a password with at least 6 characters.");
             return false;
         } else if (!password.equals(confirmPassword)) {
-            mPassword.setError("Passwords do not match");
+            mConfirmPassword.setError("Passwords do not match");
             return false;
         }
         return true;
@@ -128,9 +132,10 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
         String confirmPassword = mConfirmPassword.getText().toString().trim();
 
         boolean validEmail = isValidEmail(email);
-        boolean validName = isValidName(firstName, lastName);
+        boolean validFirstName = isValidFirstName(firstName);
+        boolean validLastName = isValidLastName(lastName);
         boolean validPassword = isValidPassword(password, confirmPassword);
-        if (!validEmail || !validName || !validPassword) return;
+        if (!validEmail || !validFirstName || !validLastName || !validPassword) return;
 
         mAuth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this, new OnCompleteListener< AuthResult>() {
