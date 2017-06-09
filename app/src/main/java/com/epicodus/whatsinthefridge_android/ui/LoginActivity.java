@@ -42,10 +42,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     }
 
     @Override
-    public void onClick(View v) {
-        if (v == mSignInButton) {
-            String email = mEmailEditText.getText().toString();
-            String password = mPasswordText.getText().toString();
+    public void onClick(View view) {
+        if (view == mSignInButton) {
+            loginWithPassword();
+
+
+
 
             if (email.length() == 0) {
                 mEmailEditText.setError("Valid email address is required");
@@ -58,6 +60,20 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 startActivity(intent);
                 Toast.makeText(LoginActivity.this, "Welcome Back", Toast.LENGTH_SHORT).show();
             }
+        }
+    }
+
+    private void loginWithPassword() {
+        String email = mEmailEditText.getText().toString().trim();
+        String password = mPasswordText.getText().toString().trim();
+
+        if (email.equals("")){
+           mEmailEditText.setError("Please enter your email.");
+            return;
+        }
+        if (password.equals("")) {
+            mPasswordText.setError("Please enter your password.");
+            return;
         }
     }
 }
