@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -38,8 +39,16 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
     public void bindRecipe(Recipe recipe) {
         ImageView recipeImageView = (ImageView) mView.findViewById(R.id.recipeImageView);
         TextView titleTextView = (TextView) mView.findViewById(R.id.recipeTitleTextView);
-        TextView linkTextView = (TextView) mView.findViewById(R.id.websiteTextView);
         TextView ingredientsTextView = (TextView) mView.findViewById(R.id.ingredientListTextView);
+
+        Picasso.with(mContext)
+                .load(recipe.getImageUrl())
+                .resize(MAX_WIDTH, MAX_HEIGHT)
+                .centerCrop()
+                .into(recipeImageView);
+        titleTextView.setText(recipe.getTitle());
+        //TODO: find out why ingredients arent being displayed
+//        ingredientsTextView.setText(recipe.getIngredients());
     }
 
     @Override
