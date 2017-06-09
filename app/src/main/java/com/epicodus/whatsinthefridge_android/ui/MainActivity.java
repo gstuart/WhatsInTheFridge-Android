@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (v == mLoginButton) {
             Intent intent = new Intent(MainActivity.this, LoginActivity.class);
             startActivity(intent);
+            finish();
         }
         if (v == mRegisterLink) {
             Intent intent = new Intent(MainActivity.this, CreateAccountActivity.class);
