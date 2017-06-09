@@ -79,6 +79,20 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
         };
     }
 
+    @Override
+    public void onStart() {
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener);
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuthListener != null) {
+            mAuth.removeAuthStateListener(mAuthListener);
+        }
+    }
+
     private void createNewUser() {
         final String firstName = mFirstName.getText().toString().trim();
         final String lastName = mLastName.getText().toString().trim();
