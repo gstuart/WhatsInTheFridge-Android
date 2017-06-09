@@ -25,7 +25,7 @@ public class SavedRecipesListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_saved_recipes_list);
+        setContentView(R.layout.activity_recipe_list);
         ButterKnife.bind(this);
 
         mRecipeReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPES);

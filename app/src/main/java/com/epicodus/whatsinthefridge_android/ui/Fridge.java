@@ -87,7 +87,7 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
             startActivity(intent);
         }
         if (v == mSavedRecipesButton) {
-            Intent intent = new Intent(Fridge.this, RecipeList.class);
+            Intent intent = new Intent(Fridge.this, SavedRecipesListActivity.class);
             startActivity(intent);
         }
     }
