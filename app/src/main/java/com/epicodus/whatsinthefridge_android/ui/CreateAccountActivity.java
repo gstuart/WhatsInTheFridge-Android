@@ -1,4 +1,5 @@
 package com.epicodus.whatsinthefridge_android.ui;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
@@ -17,6 +18,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -33,6 +35,8 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
     public static final String TAG = CreateAccountActivity.class.getSimpleName();
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
+    private ProgressDialog mAuthProgressDialog;
+    private String mDisplayName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +46,7 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
 
         mAuth = FirebaseAuth.getInstance();
         createAuthStateListener();
+        createAuthProgressDialog();
 
         Typeface text = Typeface.createFromAsset(getAssets(), "fonts/caviar_dreams.ttf");
         mFirstName.setTypeface(text);
@@ -52,6 +57,13 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
         mRegistrationButton.setTypeface(text);
 
         mRegistrationButton.setOnClickListener(this);
+    }
+
+    private void createAuthProgressDialog() {
+        mAuthProgressDialog = new ProgressDialog(this);
+        mAuthProgressDialog.setTitle("Loading...");
+        mAuthProgressDialog.setMessage("Authenticating with Firebase...");
+        mAuthProgressDialog.setCancelable(false);
     }
 
     @Override
@@ -125,28 +137,48 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
     }
 
     private void createNewUser() {
-        final String firstName = mFirstName.getText().toString().trim();
+        mDisplayName = mFirstName.getText().toString().trim();
         final String lastName = mLastName.getText().toString().trim();
         final String email = mEmail.getText().toString().trim();
         String password = mPassword.getText().toString().trim();
         String confirmPassword = mConfirmPassword.getText().toString().trim();
 
         boolean validEmail = isValidEmail(email);
-        boolean validFirstName = isValidFirstName(firstName);
+        boolean validFirstName = isValidFirstName(mDisplayName);
         boolean validLastName = isValidLastName(lastName);
         boolean validPassword = isValidPassword(password, confirmPassword);
         if (!validEmail || !validFirstName || !validLastName || !validPassword) return;
 
-        mAuth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this, new OnCompleteListener< AuthResult>() {
-                @Override
-                public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isSuccessful()) {
-                        Log.d(TAG, "Authentication successful");
-                    } else {
-                        Toast.makeText(CreateAccountActivity.this, "Authentication failed. Please try again.", Toast.LENGTH_LONG).show();
-                    }
+        mAuthProgressDialog.show();
+
+        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener< AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                mAuthProgressDialog.dismiss();
+
+                if (task.isSuccessful()) {
+                    Log.d(TAG, "Authentication successful");
+                    createFirebaseUserProfile(task.getResult().getUser());
+                } else {
+                    Toast.makeText(CreateAccountActivity.this, "Authentication failed. Please try again.", Toast.LENGTH_LONG).show();
                 }
-            });
+            }
+        });
+    }
+
+    public void createFirebaseUserProfile(final FirebaseUser user) {
+
+        UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
+                .setDisplayName(mDisplayName)
+                .build();
+
+        user.updateProfile(addProfileName).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+                    Log.d(TAG, user.getDisplayName());
+                }
+            }
+        });
     }
 }

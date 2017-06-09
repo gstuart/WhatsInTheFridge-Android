@@ -31,7 +31,7 @@ Every find yourself standing in front of the refrigerator wondering what you cou
 1. You first will need the following things properly installed on your computer.
     * [Git](https://git-scm.com/)
     * [Android Studio](https://developer.android.com/studio/install.html)
-2. With the above items installed you may go to your terminal and `git clone https://github.com/gstuart/AlwaysForTheBetter-Andriod`
+2. With the above items installed you may go to your terminal and `git clone https://github.com/gstuart/WhatsInTheFridge-Android`
 3. Import project into Android Studio
 
 
@@ -70,7 +70,7 @@ export var masterFirebaseConfig = {
 
 ## Sources
  * [Home activity image](https://unsplash.com/search/refrigerator)
- * [Api](http://www.recipepuppy.com/about/api/)
+ * [Api: Recipe Puppy](http://www.recipepuppy.com/about/api/)
 
 
 ## Maintainer
