@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -77,6 +78,38 @@ public class CreateAccountActivity extends AppCompatActivity  implements View.On
                 }
             }
         };
+    }
+
+    private boolean isValidEmail(String email) {
+        boolean isGoodEmail = (email != null && Patterns.EMAIL_ADDRESS.matcher(email).matches());
+        if (!isGoodEmail) {
+            mEmail.setError("Please enter a valid email address");
+            return false;
+        }
+        return isGoodEmail;
+    }
+
+    private boolean isValidName(String firstName, String lastName) {
+        if (firstName.equals("")) {
+            mFirstName.setError("Please enter your first name.");
+            return false;
+        }
+        if (lastName.equals("")) {
+            mLastName.setError("Please enter your last name");
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isValidPassword(String password, String confirmPassword) {
+        if (password.length() < 6 ) {
+            mPassword.setError("Please create a password with at least 6 characters.");
+            return false;
+        } else if (!password.equals(confirmPassword)) {
+            mPassword.setError("Passwords do not match");
+            return false;
+        }
+        return true;
     }
 
     @Override
