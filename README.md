@@ -15,7 +15,6 @@ Every find yourself standing in front of the refrigerator wondering what you cou
     - [Usage](#usage)
     - [Screen Shots](#Screen-Shots)
     - [Demo](#Demo)
-    - [Database](#database)
     - [Known Bugs](#known-bugs)
     - [Sources](#sources)
     - [Maintainer](#maintainer)
@@ -44,33 +43,21 @@ Coming Soon.
 ### Demo
 Coming Soon.
 
-### Database
-1. Create account on [Firebase](https://firebase.google.com/) and follow the instruction for creating a remote database.
-2. Create `src/app/api-keys.ts` file. Add the following code, substituting the `xxxx` with your specific Firebase credentials.
-```
-export var masterFirebaseConfig = {
-    apiKey: "xxxx",
-    authDomain: "xxxx.firebaseapp.com",
-    databaseURL: "https://xxxx.firebaseio.com",
-    storageBucket: "xxxx.appspot.com",
-    messagingSenderId: "xxxx"
-  };
-```
 
-## Known Bugs
+## Known Bugs (Listed In Priority Order)
 * :bug: = S1
 * :ant: = S2
 * :beetle: = S3
+ 
+> :ant:  Overflow Menu only displays on Main Activity
+> 
+> :bug:  Saved Recipe Detail Fragment: does not display recipe details.
+>
 
-> 
->
-> 
->
-> 
+
 
 ## Sources
- * [Home activity image](https://unsplash.com/search/refrigerator)
- * [Api: Recipe Puppy](http://www.recipepuppy.com/about/api/)
+ [Api: Recipe Puppy](http://www.recipepuppy.com/about/api/)
 
 
 ## Maintainer
