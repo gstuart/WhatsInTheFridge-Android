@@ -27,6 +27,7 @@
         android:hint="@string/ingredient"
         android:textAlignment="center"
         android:textColorHint="@color/colorTextIcons"
+        android:textColor="@color/colorTextIcons"
         android:layout_below="@+id/instructionView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="113dp" />
