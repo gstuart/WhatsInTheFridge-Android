@@ -31,8 +31,8 @@ import butterknife.ButterKnife;
 import okhttp3.Response;
 
 public class RecipeList extends AppCompatActivity {
-//    private SharedPreferences mSharedPreferences;
-//    private SharedPreferences.Editor mEditor;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
     private String mRecentIngredients;
     public static final String TAG = RecipeList.class.getSimpleName();
 
@@ -52,12 +52,12 @@ public class RecipeList extends AppCompatActivity {
 
         getRecipes(ingredient);
 
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mRecentIngredients = mSharedPreferences.getString(Constants.PREFERENCES_INGREDIENT_KEY, null);
-//
-//        if (mRecentIngredients != null) {
-//            getRecipes(mRecentIngredients);
-//        }
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mRecentIngredients = mSharedPreferences.getString(Constants.PREFERENCES_INGREDIENT_KEY, null);
+
+        if (mRecentIngredients != null) {
+            getRecipes(mRecentIngredients);
+        }
     }
 
     @Override
@@ -66,8 +66,8 @@ public class RecipeList extends AppCompatActivity {
         inflater.inflate(R.menu.menu_search, menu);
         ButterKnife.bind(this);
 
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
@@ -75,7 +75,7 @@ public class RecipeList extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextSubmit(String query) {
-//                addToSharedPreferences(query);
+                addToSharedPreferences(query);
                 getRecipes(query);
                 return false;
             }
@@ -123,7 +123,7 @@ public class RecipeList extends AppCompatActivity {
         });
     }
 
-//    private void addToSharedPreferences(String ingredient) {
-//        mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient).apply();
-//    }
+    private void addToSharedPreferences(String ingredient) {
+        mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient).apply();
+    }
 }

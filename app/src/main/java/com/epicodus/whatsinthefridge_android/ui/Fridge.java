@@ -6,7 +6,6 @@ import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,22 +13,13 @@ import android.widget.TextView;
 
 import com.epicodus.whatsinthefridge_android.Constants;
 import com.epicodus.whatsinthefridge_android.R;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-import static com.epicodus.whatsinthefridge_android.R.id.ingredient;
-
 public class Fridge extends AppCompatActivity implements View.OnClickListener {
-//    private SharedPreferences mSharedPreferences;
-//    private SharedPreferences.Editor mEditor;
-    private DatabaseReference mSearchedIngredientReference;
-    private ValueEventListener mSearchedIngredientReferenceListener;
+    private SharedPreferences mSharedPreferences;
+    private SharedPreferences.Editor mEditor;
 
     @Bind(R.id.instructionView) TextView mInstructionView;
     @Bind(R.id.ingredient) EditText mIngredient;
@@ -38,37 +28,18 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mSearchedIngredientReference = FirebaseDatabase
-                .getInstance()
-                .getReference()
-                .child(Constants.FIREBASE_CHILD_SEARCHED_INGREDIENT);
-
-        mSearchedIngredientReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot ingredientSnapshot : dataSnapshot.getChildren()) {
-                    String ingredient = ingredientSnapshot.getValue().toString();
-                    Log.d("Ingredient updated", "ingredient: " + ingredient);
-                }
-        }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fridge);
         ButterKnife.bind(this);
 
         Typeface text = Typeface.createFromAsset(getAssets(), "fonts/caviar_dreams.ttf");
-        mInstructionView.setTypeface(text);
-        mIngredient.setTypeface(text);
-        mSearchRecipesButton.setTypeface(text);
-        mSavedRecipesButton.setTypeface(text);
+            mInstructionView.setTypeface(text);
+            mIngredient.setTypeface(text);
+            mSearchRecipesButton.setTypeface(text);
+            mSavedRecipesButton.setTypeface(text);
 
-//        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-//        mEditor = mSharedPreferences.edit();
+        mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        mEditor = mSharedPreferences.edit();
 
         mSearchRecipesButton.setOnClickListener(this);
         mSavedRecipesButton.setOnClickListener(this);
@@ -78,10 +49,9 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         if (v == mSearchRecipesButton) {
             String ingredient = mIngredient.getText().toString();
-            saveIngredientToFirebase(ingredient);
-//            if(!(ingredient).equals("")) {
-//                addToSharedPreferences(ingredient);
-//            }
+            if(!(ingredient).equals("")) {
+                addToSharedPreferences(ingredient);
+            }
             Intent intent = new Intent(Fridge.this, RecipeList.class);
             intent.putExtra("ingredient", ingredient);
             startActivity(intent);
@@ -92,17 +62,7 @@ public class Fridge extends AppCompatActivity implements View.OnClickListener {
         }
     }
 
-    public void saveIngredientToFirebase(String ingredient) {
-        mSearchedIngredientReference.push().setValue(ingredient);
+    private void addToSharedPreferences(String ingredient) {
+        mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient).apply();
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mSearchedIngredientReference.removeEventListener(mSearchedIngredientReferenceListener);
-    }
-
-//    private void addToSharedPreferences(String ingredient) {
-//        mEditor.putString(Constants.PREFERENCES_INGREDIENT_KEY, ingredient).apply();
-//    }
 }
