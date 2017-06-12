@@ -22,7 +22,8 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
         mContext = context;
     }
 
-    protected void populatedViewHolder(FirebaseRecipeViewHolder viewHolder, Recipe model, int position) {
+    @Override
+    protected void populateViewHolder(FirebaseRecipeViewHolder viewHolder, Recipe model, int position) {
         viewHolder.bindRecipe(model);
     }
 
