@@ -36,13 +36,6 @@ public class SavedRecipesListActivity extends AppCompatActivity implements OnSta
         setContentView(R.layout.activity_recipe_list);
         ButterKnife.bind(this);
 
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        mRecipeReference = FirebaseDatabase
-                .getInstance()
-                .getReference(Constants.FIREBASE_CHILD_RECIPES)
-                .child(uid);
         setUpFirebaseAdapter();
     }
 

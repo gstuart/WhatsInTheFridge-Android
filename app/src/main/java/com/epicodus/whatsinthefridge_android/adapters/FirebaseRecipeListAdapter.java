@@ -1,9 +1,7 @@
 package com.epicodus.whatsinthefridge_android.adapters;
 
-
 import android.content.Context;
 import android.support.v4.view.MotionEventCompat;
-import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -18,7 +16,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, FirebaseRecipeViewHolder>  implements ItemTouchHelperAdapter {
@@ -28,42 +25,40 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
     private ChildEventListener mChildEventListener;
     private ArrayList<Recipe> mRecipes = new ArrayList<>();
 
-    public FirebaseRecipeListAdapter(Class<Recipe> modelClass,
-                                     int modelLayout,
-                                     Class<FirebaseRecipeViewHolder> viewHolderClass,
-                                     Query ref,
-                                     OnStartDragListener onStartDragListener,
-                                     Context context) {
+    public FirebaseRecipeListAdapter(Class<Recipe> modelClass, int modelLayout,
+                                         Class<FirebaseRecipeViewHolder> viewHolderClass,
+                                         Query ref, OnStartDragListener onStartDragListener, Context context) {
         super(modelClass, modelLayout, viewHolderClass, ref);
         mRef = ref.getRef();
         mOnStartDragListener = onStartDragListener;
         mContext = context;
 
         mChildEventListener = mRef.addChildEventListener(new ChildEventListener() {
-             @Override
-             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                 mRecipes.add(dataSnapshot.getValue(Recipe.class));
-             }
 
-             @Override
-             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                mRecipes.add(dataSnapshot.getValue(Recipe.class));
+            }
 
-             }
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-             @Override
-             public void onChildRemoved(DataSnapshot dataSnapshot) {
+            }
 
-             }
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
 
-             @Override
-             public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+            }
 
-             }
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
-             @Override
-             public void onCancelled(DatabaseError databaseError) {
+            }
 
-             }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
         });
     }
 
@@ -94,7 +89,6 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
         getRef(position).removeValue();
     }
 
-
     @Override
     public void cleanup() {
         super.cleanup();
@@ -102,12 +96,12 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
         mRef.removeEventListener(mChildEventListener);
     }
 
-    public void setIndexInFirebase() {
-        for(Recipe recipe : mRecipes) {
-            int index = mRecipes.indexOf(recipe);
+    private void setIndexInFirebase() {
+        for (Recipe restaurant : mRecipes) {
+            int index = mRecipes.indexOf(restaurant);
             DatabaseReference ref = getRef(index);
-            recipe.setIndex(Integer.toString(index));
-            ref.setValue(recipe);
+            restaurant.setIndex(Integer.toString(index));
+            ref.setValue(restaurant);
         }
     }
 }

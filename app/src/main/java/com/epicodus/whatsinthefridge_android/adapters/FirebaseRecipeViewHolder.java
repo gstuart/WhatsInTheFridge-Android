@@ -22,7 +22,7 @@ import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
-public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
     public ImageView dragIcon;
@@ -34,7 +34,6 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
         super(itemView);
         mView = itemView;
         mContext = itemView.getContext();
-        itemView.setOnClickListener(this);
     }
 
     public void bindRecipe(Recipe recipe) {
@@ -50,30 +49,4 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
         titleTextView.setText(recipe.getTitle());
         //TODO: find out why ingredients arent being displayed
     }
-
-    @Override
-    public void onClick(View view) {
-        final ArrayList<Recipe> recipes = new ArrayList<>();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_RECIPES);
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    recipes.add(snapshot.getValue(Recipe.class));
-                }
-                int itemPosition = getLayoutPosition();
-                Intent intent = new Intent(mContext, RecipeDetailActivity.class);
-                intent.putExtra("position", itemPosition + "");
-                intent.putExtra("recipes", Parcels.wrap(recipes));
-                mContext.startActivity(intent);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-
-    }
-
 }
