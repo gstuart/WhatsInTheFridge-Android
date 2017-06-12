@@ -25,6 +25,7 @@ import java.util.ArrayList;
 public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     private static final int MAX_WIDTH = 200;
     private static final int MAX_HEIGHT = 200;
+    public ImageView mRecipeImageView;
 
     View mView;
     Context mContext;
@@ -37,7 +38,7 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
     }
 
     public void bindRecipe(Recipe recipe) {
-        ImageView recipeImageView = (ImageView) mView.findViewById(R.id.recipeImageView);
+        mRecipeImageView =  (ImageView) mView.findViewById(R.id.recipeImageView);
         TextView titleTextView = (TextView) mView.findViewById(R.id.recipeTitleTextView);
         TextView ingredientsTextView = (TextView) mView.findViewById(R.id.ingredientListTextView);
 
@@ -45,10 +46,9 @@ public class FirebaseRecipeViewHolder extends RecyclerView.ViewHolder implements
                 .load(recipe.getImageUrl())
                 .resize(MAX_WIDTH, MAX_HEIGHT)
                 .centerCrop()
-                .into(recipeImageView);
+                .into(mRecipeImageView);
         titleTextView.setText(recipe.getTitle());
-        //TODO: find out why ingredients arent being displayed
-//        ingredientsTextView.setText(recipe.getIngredients());
+        ingredientsTextView.setText(recipe.getIngredients());
     }
 
     @Override
