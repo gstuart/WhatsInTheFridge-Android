@@ -2,17 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary" >
+    android:layout_height="wrap_content">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
         <ImageView
+            android:layout_width="130dp"
+            android:layout_height="100dp"
             android:id="@+id/recipeImageView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:src="@drawable/fridge"
             android:scaleType="centerCrop"/>
 
@@ -20,10 +19,9 @@
                 android:id="@+id/dragIcon"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:layout_alignLeft="@id/recipeImageView"
-                android:layout_alignBottom="@id/recipeImageView"
-                android:gravity="bottom|left"
-                android:src="@drawable/ic_reorder_white_24dp"/>
+                android:gravity="bottom|start"
+                android:src="@drawable/ic_reorder_black_24dp"/>
+
     </RelativeLayout>
 
     <LinearLayout
@@ -31,27 +29,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorTextIcons"
-        android:padding="10dp" >
-        
+        android:padding="10dp">
+
         <TextView
-            android:id="@+id/recipeTitleTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:id="@+id/recipeTitleTextView"
             android:textSize="20sp"
-            android:textColor="@color/colorTextIcons"
             android:textStyle="bold"
-            android:text="@string/recipe_title"/>
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:text="@string/recipe_title"
+            android:textColor="@color/colorPrimary"/>
 
-            <TextView
-                android:id="@+id/recipeIngredientsTextView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentRight="true"
-                android:textColor="@color/colorTextIcons"/>
-        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>
