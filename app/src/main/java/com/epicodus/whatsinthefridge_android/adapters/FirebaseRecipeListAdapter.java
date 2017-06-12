@@ -2,6 +2,9 @@ package com.epicodus.whatsinthefridge_android.adapters;
 
 
 import android.content.Context;
+import android.support.v4.view.MotionEventCompat;
+import android.view.MotionEvent;
+import android.view.View;
 
 import com.epicodus.whatsinthefridge_android.models.Recipe;
 import com.epicodus.whatsinthefridge_android.util.ItemTouchHelperAdapter;
@@ -23,8 +26,17 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
     }
 
     @Override
-    protected void populateViewHolder(FirebaseRecipeViewHolder viewHolder, Recipe model, int position) {
+    protected void populateViewHolder(final FirebaseRecipeViewHolder viewHolder, Recipe model, int position) {
         viewHolder.bindRecipe(model);
+        viewHolder.mRecipeImageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (MotionEventCompat.getActionMasked(event) == MotionEvent.ACTION_DOWN) {
+                    mOnStartDragListener.onStartDrag(viewHolder);
+                }
+                return false;
+            }
+        });
     }
 
     @Override
