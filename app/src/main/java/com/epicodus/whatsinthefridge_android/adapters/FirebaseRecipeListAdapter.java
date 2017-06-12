@@ -93,4 +93,13 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
         mRecipes.remove(position);
         getRef(position).removeValue();
     }
+
+    public void setIndexInFirebase() {
+        for(Recipe recipe : mRecipes) {
+            int index = mRecipes.indexOf(recipe);
+            DatabaseReference ref = getRef(index);
+            recipe.setIndex(Integer.toString(index));
+            ref.setValue(recipe);
+        }
+    }
 }
