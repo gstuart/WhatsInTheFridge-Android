@@ -1,11 +1,14 @@
 package com.epicodus.whatsinthefridge_android.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Parcel;
 import android.support.v4.view.MotionEventCompat;
 import android.view.MotionEvent;
 import android.view.View;
 
 import com.epicodus.whatsinthefridge_android.models.Recipe;
+import com.epicodus.whatsinthefridge_android.ui.RecipeDetailActivity;
 import com.epicodus.whatsinthefridge_android.util.ItemTouchHelperAdapter;
 import com.epicodus.whatsinthefridge_android.util.OnStartDragListener;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -14,6 +17,8 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
+
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -72,6 +77,16 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
                     mOnStartDragListener.onStartDrag(viewHolder);
                 }
                 return false;
+            }
+        });
+
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, RecipeDetailActivity.class);
+                intent.putExtra("position", viewHolder.getAdapterPosition());
+                intent.putExtra("recipes", Parcels.wrap(mRecipes));
+                mContext.startActivity(intent);
             }
         });
     }
