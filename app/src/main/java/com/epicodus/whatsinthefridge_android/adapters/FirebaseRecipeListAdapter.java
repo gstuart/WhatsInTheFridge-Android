@@ -3,6 +3,7 @@ package com.epicodus.whatsinthefridge_android.adapters;
 
 import android.content.Context;
 import android.support.v4.view.MotionEventCompat;
+import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -17,6 +18,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, FirebaseRecipeViewHolder>  implements ItemTouchHelperAdapter {
     private DatabaseReference mRef;
@@ -80,12 +83,14 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
 
     @Override
     public boolean onItemMove(int fromPosition, int toPosition) {
+        Collections.swap(mRecipes, fromPosition, toPosition);
         notifyItemMoved(fromPosition, toPosition);
         return false;
     }
 
     @Override
     public void onItemDismiss(int position) {
+        mRecipes.remove(position);
         getRef(position).removeValue();
     }
 }
