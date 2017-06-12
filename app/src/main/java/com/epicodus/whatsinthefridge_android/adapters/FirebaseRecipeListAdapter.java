@@ -94,6 +94,14 @@ public class FirebaseRecipeListAdapter extends FirebaseRecyclerAdapter<Recipe, F
         getRef(position).removeValue();
     }
 
+
+    @Override
+    public void cleanup() {
+        super.cleanup();
+        setIndexInFirebase();
+        mRef.removeEventListener(mChildEventListener);
+    }
+
     public void setIndexInFirebase() {
         for(Recipe recipe : mRecipes) {
             int index = mRecipes.indexOf(recipe);
