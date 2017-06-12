@@ -9,6 +9,7 @@ public class Recipe {
     String imageUrl;
     String ingredients;
     private String pushId;
+    String index;
 
     public Recipe() {
 
@@ -19,6 +20,7 @@ public class Recipe {
         this.link = link;
         this.imageUrl = imageUrl;
         this.ingredients = ingredients;
+        this.index = "not_specified";
     }
 
     public String getTitle(){
@@ -43,5 +45,13 @@ public class Recipe {
 
     public void setPushId(String pushId) {
         this.pushId = pushId;
+    }
+
+    public String getIndex() {
+        return index;
+    }
+
+    public void setIndex(String index) {
+        this.index = index;
     }
 }
