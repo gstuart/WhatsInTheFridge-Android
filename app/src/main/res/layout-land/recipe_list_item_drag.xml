@@ -5,6 +5,7 @@
     android:layout_height="wrap_content">
 
     <RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
@@ -24,21 +25,21 @@
         android:background="@color/colorTextIcons"
         android:padding="10dp">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_weight=".95"
-                android:layout_height="wrap_content"
-                android:id="@+id/recipeTitleTextView"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="@string/recipe_title"
-                android:textColor="@color/colorPrimary"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_weight=".95"
+            android:layout_height="wrap_content"
+            android:id="@+id/recipeTitleTextView"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="@string/recipe_title"
+            android:textColor="@color/colorPrimary"/>
 
-            <ImageView
-                android:id="@+id/dragIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="30dp"
-                android:layout_weight=".05"
-                android:src="@drawable/ic_reorder_black_24dp"/>
+        <ImageView
+            android:id="@+id/dragIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_weight=".05"
+            android:src="@drawable/ic_reorder_black_24dp"/>
     </LinearLayout>
 </LinearLayout>
