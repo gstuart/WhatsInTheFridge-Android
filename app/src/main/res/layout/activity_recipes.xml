@@ -1,24 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.epicodus.whatsinthefridge_android.ui.RecipeList"
+    tools:context=".ui.RecipeList"
     android:background="@color/colorPrimary" >
 
-    <TextView
-        android:id="@+id/ingredientTextView"
+    <fragment
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="18dp"
-        android:text="" />
-
-    <android.support.v7.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/recyclerView"/>
+        android:id="@+id/fragmentRecipeList"
+        android:name="com.epicodus.whatsinthefridge_android.ui.RecipeListFragment"
+        tools:layout="@layout/fragment_recipe_list" />
 
 </RelativeLayout>
