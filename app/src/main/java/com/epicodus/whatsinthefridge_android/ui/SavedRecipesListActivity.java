@@ -13,7 +13,6 @@ import com.epicodus.whatsinthefridge_android.adapters.FirebaseRecipeViewHolder;
 import com.epicodus.whatsinthefridge_android.models.Recipe;
 import com.epicodus.whatsinthefridge_android.util.OnStartDragListener;
 import com.epicodus.whatsinthefridge_android.util.SimpleItemTouchHelperCallback;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -33,7 +32,7 @@ public class SavedRecipesListActivity extends AppCompatActivity implements OnSta
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recipe_list);
+        setContentView(R.layout.activity_recipes);
         ButterKnife.bind(this);
 
         setUpFirebaseAdapter();
