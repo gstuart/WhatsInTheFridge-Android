@@ -14,7 +14,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:id="@+id/recipeImageView"
-            android:src="@drawable/mainactivity"
+            android:src="@drawable/fridge"
             android:scaleType="centerCrop" />
 
         <RelativeLayout
