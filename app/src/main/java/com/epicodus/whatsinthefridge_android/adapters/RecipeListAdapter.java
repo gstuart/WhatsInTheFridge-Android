@@ -18,6 +18,7 @@ import com.epicodus.whatsinthefridge_android.R;
 import com.epicodus.whatsinthefridge_android.models.Recipe;
 import com.epicodus.whatsinthefridge_android.ui.RecipeDetailActivity;
 import com.epicodus.whatsinthefridge_android.ui.RecipeDetailFragment;
+import com.epicodus.whatsinthefridge_android.util.OnRecipeSelectedListener;
 import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
@@ -27,24 +28,29 @@ import java.util.ArrayList;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.RecipeListViewHolder> {
+public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder> {
+    private static final int MAX_WIDTH = 200;
+    private static final int MAX_HEIGHT = 200;
+
     private ArrayList<Recipe> mRecipes = new ArrayList<>();
     private Context mContext;
+    private OnRecipeSelectedListener mOnRecipeSelectedListener;
 
-    public RecipeListAdapter(Context context, ArrayList<Recipe> recipes) {
+    public RecipeListAdapter(Context context, ArrayList<Recipe> recipes, OnRecipeSelectedListener recipeSelectedListener) {
         mContext = context;
         mRecipes = recipes;
+        mOnRecipeSelectedListener = recipeSelectedListener;
     }
 
     @Override
-    public RecipeListAdapter.RecipeListViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecipeListAdapter.RecipeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recipe_list_item, parent, false);
-        RecipeListViewHolder viewHolder = new RecipeListViewHolder(view);
+        RecipeViewHolder viewHolder = new RecipeViewHolder(view, mRecipes, mOnRecipeSelectedListener);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(RecipeListAdapter.RecipeListViewHolder holder, int position) {
+    public void onBindViewHolder(RecipeListAdapter.RecipeViewHolder holder, int position) {
         holder.bindRecipe(mRecipes.get(position));
     }
 
@@ -53,23 +59,36 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
         return mRecipes.size();
     }
 
-    public class RecipeListViewHolder extends RecyclerView.ViewHolder  implements View.OnClickListener {
+    public class RecipeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @Bind(R.id.recipeImageView) ImageView mRecipeImageView;
         @Bind(R.id.recipeTitleTextView) TextView mRecipeTitleTextView;
         @Bind(R.id.recipeIngredientsTextView) TextView mRecipeIngredientsTextView;
 
         private Context mContext;
         private int mOrientation;
+        private ArrayList<Recipe> mRecipes = new ArrayList<>();
+        private OnRecipeSelectedListener mRecipeSelectedListener;
 
-        public RecipeListViewHolder(View itemView) {
-            super(itemView);
+        public RecipeViewHolder(View itemView, ArrayList<Recipe> recipes, OnRecipeSelectedListener recipeSelectedListener) {
+           super(itemView);
             ButterKnife.bind(this, itemView);
             mContext = itemView.getContext();
-            itemView.setOnClickListener(this);
             mOrientation = itemView.getResources().getConfiguration().orientation;
-            if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
+            mRecipes = recipes;
+            mRecipeSelectedListener = recipeSelectedListener;
+
+            if(mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 createDetailFragment(0);
             }
+            itemView.setOnClickListener(this);
+        }
+
+        public void bindRecipe(Recipe recipe) {
+
+            Picasso.with(mContext).load(recipe.getImageUrl()).into(mRecipeImageView);
+
+            mRecipeTitleTextView.setText(recipe.getTitle());
+            mRecipeIngredientsTextView.setText(recipe.getIngredients());
         }
 
         private void createDetailFragment(int position) {
@@ -79,9 +98,12 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
             ft.commit();
         }
 
+
         @Override
         public void onClick(View v) {
             int itemPosition = getLayoutPosition();
+            mOnRecipeSelectedListener.onRecipeSelected(itemPosition, mRecipes);
+
             if (mOrientation == Configuration.ORIENTATION_LANDSCAPE) {
                 createDetailFragment(itemPosition);
             } else {
@@ -90,14 +112,6 @@ public class RecipeListAdapter extends RecyclerView.Adapter<RecipeListAdapter.Re
                 intent.putExtra(Constants.EXTRA_KEY_RECIPES, Parcels.wrap(mRecipes));
                 mContext.startActivity(intent);
             }
-        }
-
-        public void bindRecipe(Recipe recipe) {
-
-            Picasso.with(mContext).load(recipe.getImageUrl()).into(mRecipeImageView);
-
-            mRecipeTitleTextView.setText(recipe.getTitle());
-            mRecipeIngredientsTextView.setText(recipe.getIngredients());
         }
     }
 }
