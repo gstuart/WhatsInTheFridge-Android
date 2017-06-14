@@ -1,4 +1,4 @@
-![Banner Image](/app/src/main/res/drawable/mainactivity.jpg)
+![Banner Image](/app/src/main/res/drawable/fridge.jpg)
 # Whats-In-The-Fridge
  [![standard-readme compliant](https://img.shields.io/badge/readme%20style-standard-brightgreen.svg)](https://github.com/RichardLitt/standard-readme)
 ![Dependencies](https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg)
