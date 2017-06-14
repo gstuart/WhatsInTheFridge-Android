@@ -34,7 +34,14 @@ Every find yourself standing in front of the refrigerator wondering what you cou
 *  In Android Studio, `Run` project
 
 ### Screen Shots
-Coming Soon.
+[Home](/app/src/main/res/drawable/screenshots/home.png)
+[About](/app/src/main/res/drawable/screenshots/about.png)
+[Registration](/app/src/main/res/drawable/screenshots/registration.png)
+[Sign In](/app/src/main/res/drawable/screenshots/signin.png)
+[Search](/app/src/main/res/drawable/screenshots/refrigerator.png)
+[Search Results](/app/src/main/res/drawable/screenshots/find_recipes_results.png)
+[Recipe Details](/app/src/main/res/drawable/screenshots/recipe_details.png)
+[Saved Recipes](/app/src/main/res/drawable/screenshots/saved_recipes.png)
 
 
 ## Known Bugs (Listed In Priority Order)
@@ -45,8 +52,6 @@ Coming Soon.
 > :ant:  Registration form is not completely viewable on landscape mode.
 > 
 > :ant:  Save button displays on saved recipes.
->
-
 
 
 ## Sources
