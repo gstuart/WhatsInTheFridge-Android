@@ -6,15 +6,13 @@
 ## Short Description
 > Epicodus Android Project which allows user to find recipes based on the ingredients in their fridge.
 
-## Long Description
-Every find yourself standing in front of the refrigerator wondering what you could make from the ingredients you have? Well this is the app for you. Simply enter 1-5 ingredients you have on hand and a list of recipes with images will appear. Don't quite have all the ingredients and need to run to the market? No problem, this app captures a shopping list for you as well.  
+Every find yourself standing in front of the refrigerator wondering what you could make from the ingredients you have? Well this is the app for you. Simply enter ingredients you have on hand and a list of recipes with images will appear. 
 
 ## Table of Contents
 - [Sections](#sections)
     - [Install](#install)
     - [Usage](#usage)
     - [Screen Shots](#Screen-Shots)
-    - [Demo](#Demo)
     - [Known Bugs](#known-bugs)
     - [Sources](#sources)
     - [Maintainer](#maintainer)
@@ -27,11 +25,9 @@ Every find yourself standing in front of the refrigerator wondering what you cou
 ## Install
 **All installation instructions are for macOS**
 
-1. You first will need the following things properly installed on your computer.
-    * [Git](https://git-scm.com/)
-    * [Android Studio](https://developer.android.com/studio/install.html)
-2. With the above items installed you may go to your terminal and `git clone https://github.com/gstuart/WhatsInTheFridge-Android`
-3. Import project into Android Studio
+1. You first will need [Android Studio](https://developer.android.com/studio/install.html) properly installed on your computer.
+2. With the above items installed you may go to your terminal and within the target directory you want this project to live enter `git clone https://github.com/gstuart/WhatsInTheFridge-Android`.
+3. Import project into Android Studio from within Android Studio interface.
 
 
 ## Usage
@@ -40,18 +36,15 @@ Every find yourself standing in front of the refrigerator wondering what you cou
 ### Screen Shots
 Coming Soon.
 
-### Demo
-Coming Soon.
-
 
 ## Known Bugs (Listed In Priority Order)
 * :bug: = S1
 * :ant: = S2
 * :beetle: = S3
  
-> :ant:  Overflow Menu only displays on Main Activity
+> :ant:  Registration form is not completely viewable on landscape mode.
 > 
-> :bug:  Saved Recipe Detail Fragment: does not display recipe details.
+> :ant:  Save button displays on saved recipes.
 >
 
 
