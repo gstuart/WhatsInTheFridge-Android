@@ -34,21 +34,14 @@ Every find yourself standing in front of the refrigerator wondering what you cou
 *  In Android Studio, `Run` project
 
 ### Screen Shots
-![Home](/app/src/main/res/drawable/screenshots/home.png=50x100)
-
-![About](/app/src/main/res/drawable/screenshots/about.png)
-
-![Registration](/app/src/main/res/drawable/screenshots/registration.png)
-
-![Sign In](/app/src/main/res/drawable/screenshots/signin.png)
-
-![Search](/app/src/main/res/drawable/screenshots/refrigerator.png)
-
-![Search Results](/app/src/main/res/drawable/screenshots/find_recipes_results.png)
-
-![Recipe Details](/app/src/main/res/drawable/screenshots/recipe_details.png)
-
-![Saved Recipes](/app/src/main/res/drawable/screenshots/saved_recipes.png)
+<img src="/app/src/main/res/drawable/screenshots/home.png" alt="Home" width="250">
+<img src="/app/src/main/res/drawable/screenshots/about.png" alt="About" width="250">
+<img src="/app/src/main/res/drawable/screenshots/signin.png" alt="Sign In" width="250">
+<img src="/app/src/main/res/drawable/screenshots/registration.png" alt="Registration" width="250">
+<img src="/app/src/main/res/drawable/screenshots/refrigerator.png" alt="Refrigerator" width="250">
+<img src="/app/src/main/res/drawable/screenshots/find_recipes_results.png" alt="Search Results" width="250">
+<img src="/app/src/main/res/drawable/screenshots/recipe_details.png" alt="Recipe Details" width="250">
+<img src="/app/src/main/res/drawable/screenshots/saved_recipes.png" alt="Saved Recipes" width="250">
 
 
 ## Known Bugs (Listed In Priority Order)
