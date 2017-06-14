@@ -34,7 +34,7 @@ Every find yourself standing in front of the refrigerator wondering what you cou
 *  In Android Studio, `Run` project
 
 ### Screen Shots
-![Home](/app/src/main/res/drawable/screenshots/home.png)
+![Home](/app/src/main/res/drawable/screenshots/home.png=50x100)
 
 ![About](/app/src/main/res/drawable/screenshots/about.png)
 
