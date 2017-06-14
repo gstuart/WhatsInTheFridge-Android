@@ -34,14 +34,7 @@ Every find yourself standing in front of the refrigerator wondering what you cou
 *  In Android Studio, `Run` project
 
 ### Screen Shots
-<img src="/app/src/main/res/drawable/screenshots/home.png" alt="Home" width="250">
-<img src="/app/src/main/res/drawable/screenshots/about.png" alt="About" width="250">
-<img src="/app/src/main/res/drawable/screenshots/signin.png" alt="Sign In" width="250">
-<img src="/app/src/main/res/drawable/screenshots/registration.png" alt="Registration" width="250">
-<img src="/app/src/main/res/drawable/screenshots/refrigerator.png" alt="Refrigerator" width="250">
-<img src="/app/src/main/res/drawable/screenshots/find_recipes_results.png" alt="Search Results" width="250">
-<img src="/app/src/main/res/drawable/screenshots/recipe_details.png" alt="Recipe Details" width="250">
-<img src="/app/src/main/res/drawable/screenshots/saved_recipes.png" alt="Saved Recipes" width="250">
+<img src="/app/src/main/res/drawable/screenshots/home.png" alt="Home" width="250"> <img src="/app/src/main/res/drawable/screenshots/about.png" alt="About" width="250"> <img src="/app/src/main/res/drawable/screenshots/signin.png" alt="Sign In" width="250"> <img src="/app/src/main/res/drawable/screenshots/registration.png" alt="Registration" width="250"> <img src="/app/src/main/res/drawable/screenshots/refrigerator.png" alt="Refrigerator" width="250"> <img src="/app/src/main/res/drawable/screenshots/find_recipes_results.png" alt="Search Results" width="250"> <img src="/app/src/main/res/drawable/screenshots/recipe_details.png" alt="Recipe Details" width="250"> <img src="/app/src/main/res/drawable/screenshots/saved_recipes.png" alt="Saved Recipes" width="250">
 
 
 ## Known Bugs (Listed In Priority Order)
