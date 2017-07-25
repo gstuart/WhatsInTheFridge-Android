@@ -24,6 +24,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 // TODO provide navigation from this page to the main activity
+// TODO provide link to forgot password
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     public static final String TAG = LoginActivity.class.getSimpleName();
