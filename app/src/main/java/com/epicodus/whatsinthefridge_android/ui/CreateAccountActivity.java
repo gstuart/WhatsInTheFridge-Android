@@ -26,6 +26,7 @@ import butterknife.ButterKnife;
 public class CreateAccountActivity extends AppCompatActivity  implements View.OnClickListener {
 
     // TODO provide navigation from this page to the main activity
+//    TODO bug: when registering, this page navigates to home page instead of fridge
 
     @Bind(R.id.firstNameText) EditText mFirstName;
     @Bind(R.id.lastNameText) EditText mLastName;

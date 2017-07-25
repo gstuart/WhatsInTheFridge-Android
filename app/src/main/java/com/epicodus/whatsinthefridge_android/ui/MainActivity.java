@@ -19,6 +19,10 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+
+//    TO DO this page is displayed if user is logged in
+//    if user is logged in they see both the sign in and register button
+
     @Bind(R.id.registerLink) Button mRegisterLink;
     @Bind(R.id.loginButton) Button mLoginButton;
     @Bind(R.id.aboutButton) Button mAboutButton;
@@ -72,7 +76,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mAuth.removeAuthStateListener(mAuthListener);
         }
     }
-
+// TODO, if not logged in need to NOT display overflow menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();

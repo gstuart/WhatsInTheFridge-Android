@@ -5,5 +5,5 @@
         android:id="@+id/action_logout"
         android:title="Logout"
         android:visible="true"
-        app:showAsAction="never" />
+        app:showAsAction="never"/>
 </menu>
