@@ -24,6 +24,9 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class CreateAccountActivity extends AppCompatActivity  implements View.OnClickListener {
+
+    // TODO provide navigation from this page to the main activity
+
     @Bind(R.id.firstNameText) EditText mFirstName;
     @Bind(R.id.lastNameText) EditText mLastName;
     @Bind(R.id.emailText) EditText mEmail;
