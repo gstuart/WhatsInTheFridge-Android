@@ -49,7 +49,7 @@ Every find yourself standing in front of the refrigerator wondering what you cou
 
 ## Sources
  * [Api: Recipe Puppy](http://www.recipepuppy.com/about/api/)
- * [Home Activity Image](https://unsplash.com/search/refrigerator)
+ * [Home Activity Image](http://www.jitterbuzz.com/philfil/fridge.jpg)
 
 
 ## Maintainer
